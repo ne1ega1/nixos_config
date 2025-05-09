@@ -1,0 +1,286 @@
+* {
+    font-family: JetBrainsMonoNerdFont;
+    font-size: 14px;
+    min-height: 0;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+window#waybar > box {
+    border-radius: 0px;
+    margin: 5px 0px 0px 0px;
+    background-color: alpha(@base02, 0.65);
+    /*box-shadow: 0px 3px 5px #111111;*/
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#cpu,
+#memory,
+#language,
+#custom-sp2,
+#pulseaudio,
+#temperature,
+#workspaces,
+#taskbar {
+    background: @base01;
+    min-width: 50px;
+}
+
+#workspaces button {
+    padding: 6px 6px 6px 6px;
+    background-color: transparent;
+    /*color: @base00;*/
+}
+
+#workspaces button.urgent {
+    color: @base09;
+}
+
+button {
+    box-shadow: inset 0 -3px transparent;
+    border: none;
+    border-radius: 0px;
+    min-width: 40px;
+}
+
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px transparent;
+}
+
+button:active {
+    min-width: 90px;
+}
+
+tooltip {
+    background: @base00;
+    margin: 0px;
+    padding: 0px;
+    border: 20px solid rgba(100, 114, 125, 0);
+    border-radius: 0px;
+}
+
+#ru-dark {
+    border-left: 15px solid @base00;
+    border-bottom: 35px solid transparent;
+}
+
+#ld-soft {
+    border-left: 15px solid transparent;
+    border-bottom: 35px solid @base01;
+}
+
+#ru-soft {
+    border-left: 15px solid @base01;
+    border-bottom: 35px solid transparent;
+}
+
+#ld-dark {
+    border-left: 15px solid transparent;
+    border-bottom: 35px solid @base00;
+}
+
+#lu-soft {
+    border-right: 15px solid @base01;
+    border-bottom: 35px solid transparent;
+}
+
+#lu-dark {
+    border-right: 15px solid @base00;
+    border-bottom: 35px solid transparent;
+}
+
+#rd-dark {
+    border-left: 15px solid @base00;
+    border-top: 35px solid transparent;
+}
+
+#rd-soft {
+    border-left: 15px solid @base01;
+    border-top: 35px solid transparent;
+}
+
+#tray {
+    padding: 2px 12px 2px 12px;
+}
+
+#temperature {
+    padding: 2px 12px 2px 2px;
+}
+
+#power {
+    padding: 2px 2px 2px 2px;
+}
+
+#language {
+    padding: 2px 2px 2px 12px;
+}
+
+#custom-weather {
+    padding: 2px 12px 2px 12px;
+}
+
+#tray,
+#misc,
+#power,
+#network,
+#idle_inhibitor,
+#custom-lock,
+#custom-power,
+#custom-reboot,
+#custom-launcher,
+#custom-weather,
+#custom-notification {
+    min-width: 45px;
+    background: @base00;
+}
+
+#pulseaudio.muted {
+    padding: 2px 12px 2px 2px;
+    color: @base08;
+}
+
+#temperature.critical {
+    background-color: @base08;
+}
+
+#clock {
+    background: transparent;
+    font-family: JetBrainsNerdFont;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 2px 10px 0px 10px;
+}
+
+/* ========== Other ========== */
+
+/*#workspaces button.active {*/
+/*  background-color: transparent;*/
+/*  border-radius: 20;*/
+/*}*/
+
+/*#workspaces button:hover {*/
+/*  color: @base00;*/
+/*}*/
+
+/*#workspaces button.empty {
+color: #6c7086
+}*/
+
+/*#workspaces button.focused {
+}*/
+
+/*#custom-menu {*/
+/*    padding: 2 15px;*/
+/*    margin: 5 5 5 5px;*/
+/*    color: @vl;*/
+/*    background-color: @color3;*/
+/*    border: none;*/
+/*    border-radius: 20px;*/
+/*}*/
+/**/
+/*#custom-menu:hover {*/
+/*    color: @fl;*/
+/*}*/
+/**/
+/*#cpu {*/
+/*    padding: 8 15px;*/
+/*    margin: 6px;*/
+/*    color: @base00;*/
+/*    background-color: @color3;*/
+/*    border: none;*/
+/*    border-radius: 20px;*/
+/*}*/
+/**/
+/*#clock.date {*/
+/*    padding: 2 15px;*/
+/*    margin: 6px;*/
+/*    color: @base00;*/
+/*    background-color: @color3;*/
+/*    border: none;*/
+/*    border-radius: 20px;*/
+/*}*/
+/**/
+/*#window {*/
+/*    padding: 2 15px;*/
+/*    margin: 6px;*/
+/*    color: @base00;*/
+/*    background-color: @color3;*/
+/*    border: none;*/
+/*    border-radius: 20px;*/
+/*}*/
+/**/
+/*#custom-cmus,*/
+/*#custom-weather {*/
+/*    padding: 2 15px;*/
+/*    margin: 6px;*/
+/*    color: @base00;*/
+/*    background-color: @color3;*/
+/*    border: none;*/
+/*    border-radius: 20px;*/
+/*}*/
+/**/
+/*#custom-cmus:hover {*/
+/*    color: @base00;*/
+/*}*/
+/**/
+/*#custom-kitty {*/
+/*    padding: 2 10 2 15px;*/
+/*    margin: 5 0 5 5px;*/
+/*    color: @base00;*/
+/*    background-color: @color3;*/
+/*    border: none;*/
+/*    border-radius: 20 0 0 20px;*/
+/*}*/
+/**/
+/*#custom-kitty:hover {*/
+/*    color: @base00;*/
+/*}*/
+/**/
+/*#custom-nemo {*/
+/*    padding: 2 15 2 10px;*/
+/*    margin: 5 5 5 0px;*/
+/*    color: @base00;*/
+/*    background-color: @color3;*/
+/*    border: none;*/
+/*    border-radius: 0 20 20 0px;*/
+/*}*/
+/**/
+/*#custom-nemo:hover {*/
+/*    color: @base00;*/
+/*}*/
+/**/
+/*#battery {*/
+/*    padding: 8 15px;*/
+/*    margin: 6 6 6 0px;*/
+/*    color: @base00;*/
+/*    background-color: @color3;*/
+/*    border: none;*/
+/*    border-radius: 5 20 20 5px;*/
+/*}*/
+/**/
+/*#battery.charging,*/
+/*#battery.plugged {*/
+/*    color: @base00;*/
+/*}*/
+/**/
+/*#battery.bat2 {*/
+/*    padding: 8 15px;*/
+/*    margin: 6 5 6 6px;*/
+/*    color: @base00;*/
+/*    background-color: @color3;*/
+/*    border: none;*/
+/*    border-radius: 20 5 5 20px;*/
+/*}*/
+/**/
+/*#battery.charging,*/
+/*#battery.plugged {*/
+/*    color: @base00;*/
+/*}*/

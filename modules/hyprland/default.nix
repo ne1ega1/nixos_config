@@ -2,6 +2,7 @@
     wayland.windowManager.hyprland = {
         enable = true;
         xwayland.enable = true;
+        systemd.variables = [ "--all" ];
         settings = {
             monitor = [ "eDP-1,preferred,auto,1" ];
             workspace = map (x: "${x}, persistent:true") [ "1" "2" "3" "4" "5" "6" "7" "8"];

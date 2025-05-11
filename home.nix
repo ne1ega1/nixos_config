@@ -2,11 +2,14 @@
 
 {
     imports = [ 
+        ./modules/xdg
+        ./modules/yazi
+        ./modules/fish
+        ./modules/waybar
+        ./modules/hyprland
         ./modules/mako.nix
         ./modules/ghostty.nix
-        ./modules/yazi/yazi.nix
-        ./modules/waybar/config.nix
-        ./modules/hyprland/default.nix
+        ./modules/fastfetch.nix
         # inputs.hyprpanel.homeManagerModules.hyprpanel
     ];
 
@@ -25,6 +28,7 @@
             eza
             fzf
             mpv
+            grc
             btop
             grim
             meld
@@ -36,6 +40,7 @@
             gnutar
             clipse
             swappy
+            scrcpy
             lolcat
             figlet
             vivaldi
@@ -43,13 +48,12 @@
             ripgrep
             python3
             zathura
+            lazygit
             obsidian
-            neofetch
             dnsutils
             cliphist
             cassette
             hyprpaper
-            kchmviewer
             pavucontrol
             libreoffice
             qbittorrent
@@ -58,7 +62,9 @@
             nwg-displays
             rofi-wayland
             wl-clipboard
+            xfce.tumbler
             sublime-merge
+            xfce.ristretto
             hyprpolkitagent
             nodePackages.npm
             mattermost-desktop
@@ -91,16 +97,6 @@
         # };
     };
 
-    gtk = {
-        enable = true;
-    };
-
-    qt = {
-        enable = true;
-        platformTheme.name = "qtct";
-        style.name = "kvantum";
-    };
-
     stylix = {
         iconTheme = {
             enable = true;
@@ -110,28 +106,10 @@
         };
     };
 
-    xdg.mimeApps.defaultApplications = {
-        "text/plain" = [ "neovim.desktop" ];
-        "inode/directory" = [ "yazi.desktop" ];
+    services = {
+        mako.enable = true;
+        hyprpaper.enable = true;
     };
-
-    xdg.portal = {
-        enable = true;
-        xdgOpenUsePortal = true;
-        extraPortals = with pkgs; [
-            xdg-desktop-portal-gtk
-            xdg-desktop-portal-hyprland
-        ];
-        config = {
-            common = {
-                default = [
-                    "gtk"
-                ];
-            };
-        };
-    };
-
-    services.hyprpaper.enable = true;
 
     home.file = {
     };

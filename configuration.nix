@@ -1,55 +1,75 @@
 { config, pkgs, lib, ... }:
 
 {
-	imports = [
-		./hardware-configuration.nix
-        ./modules/stylix/default.nix
-	];
+    imports = [
+        ./modules/stylix
+        ./hardware-configuration.nix
+    ];
 
-	boot = {
-		loader = {
-			systemd-boot.enable = true;
-			efi.canTouchEfiVariables = true;
-		};
-		initrd.kernelModules = [ "nvidia" "i915" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
-		kernelParams = [ "nvidia-drm.fbdev=1" ];
-	};
+    boot = {
+        loader = {
+            systemd-boot.enable = true;
+            efi.canTouchEfiVariables = true;
+        };
+        initrd.kernelModules = [ "nvidia" "i915" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+        kernelParams = [ "nvidia-drm.fbdev=1" ];
+    };
 
-	hardware = {
-		graphics.enable = true;
-		nvidia.modesetting.enable = true;
-		nvidia.powerManagement.enable = true;
-		nvidia.open = false;
-		nvidia.nvidiaSettings = true;
-	};
+    hardware = {
+        graphics.enable = true;
+        nvidia.modesetting.enable = true;
+        nvidia.powerManagement.enable = true;
+        nvidia.open = false;
+        nvidia.nvidiaSettings = true;
+    };
 
-	networking = {
-		hostName = "nixos";
-		networkmanager.enable = true;
-	};
+    networking = {
+        hostName = "nixos";
+        networkmanager.enable = true;
+    };
 
-	services = {
-		getty.autologinUser = "jumanji";
-		xserver.videoDrivers = ["nvidia"];
-	};
+    services = {
+        getty.autologinUser = "jumanji";
+        xserver.videoDrivers = ["nvidia"];
+        # pulseaudio = {
+        #     enable = true;
+        #     support32Bit = true;
+        # };
+        # pipewire = {
+        #     enable = true;
+        # };
+    };
 
-	virtualisation.docker = {
-		enable = true;
-		rootless = {
-			enable = true;
-			setSocketVariable = true;
-		};
-	};
+    virtualisation.docker = {
+        enable = true;
+        rootless = {
+            enable = true;
+            setSocketVariable = true;
+        };
+    };
 
-	nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nix = {
+        settings = {
+            warn-dirty = false;
+            experimental-features = [
+                "nix-command"
+                "flakes"
+            ];
+        };
+        gc = {
+            automatic = true;
+            dates = "weekly";
+            options = "--delete-older-than 14d";
+        };
+    };
 
-	nixpkgs.config.allowUnfree = true;
+    nixpkgs.config.allowUnfree = true;
 
-	time.timeZone = "Europe/Moscow";
+    time.timeZone = "Europe/Moscow";
 
-	i18n = {
+    i18n = {
         defaultLocale = "en_US.UTF-8";
-	    extraLocaleSettings = {
+        extraLocaleSettings = {
             LC_ADDRESS = "ru_RU.UTF-8";
             LC_IDENTIFICATION = "ru_RU.UTF-8";
             LC_MEASUREMENT = "ru_RU.UTF-8";
@@ -61,29 +81,33 @@
             LC_TIME = "ru_RU.UTF-8";
         };
     };
-	
-	users.users.jumanji = {
-		isNormalUser = true;
-		description = "jumanji";
-		extraGroups = [ "networkmanager" "wheel" "docker" ];
-		shell = pkgs.fish;
-		packages = with pkgs; [];
-	};
 
-	environment.systemPackages = with pkgs; [
-		ghostty
-		gnumake
-		neovim
-		wget
-		gcc
-	];
+    users.users.jumanji = {
+        isNormalUser = true;
+        description = "jumanji";
+        extraGroups = [ "networkmanager" "wheel" "docker" "audio" ];
+        shell = pkgs.fish;
+        packages = with pkgs; [];
+    };
+
+    environment.systemPackages = with pkgs; [
+        ghostty
+        gnumake
+        neovim
+        wget
+        gcc
+    ];
 
     fonts.packages = [
     ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
-	programs = {
-		fish.enable = true;
-	};
+    programs = {
+        fish.enable = true;
+        hyprland = {
+            enable = true;
+            xwayland.enable = true;
+        };
+    };
 
-	system.stateVersion = "24.11";
+    system.stateVersion = "24.11";
 }

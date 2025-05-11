@@ -3,8 +3,9 @@
 {
     stylix = {
         enable = true;
+        polarity = "dark";
         base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
-        image = ./wallpapers/kace-rodriguez-p3OzJuT_Dks-unsplash.jpg;
+        image = ./wallpapers/nix-magenta-blue-1920x1080.png;
 			# let color = "${config.lib.stylix.colors.base00}";
 			# in import ./color.nix { inherit pkgs; col = "#${color}"; w = 1920; h = 1080; };
         fonts = rec {
@@ -13,12 +14,12 @@
                 terminal = 12;
             };
             serif = {
-                name = "DejaVu Serif";
-                package = pkgs.dejavu_fonts;
+                name = "CaskaydiaCove Nerd Font";
+                package = pkgs.nerd-fonts.caskaydia-cove;
             };
             sansSerif = {
-                name = "JetBrainsMono NF";
-                package = pkgs.nerd-fonts.jetbrains-mono;
+                name = "CaskaydiaCove Nerd Font";
+                package = pkgs.nerd-fonts.caskaydia-cove;
             };
             emoji = {
                 name = "Noto Color Emoji";

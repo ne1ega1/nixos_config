@@ -1,15 +1,17 @@
 {
     services.mako = {
-        width = 300;
-        icons = true;
         enable = true;
-        maxVisible = 3;
-        padding = "10";
-        actions = true;
-        borderSize = 1;
-        borderRadius = 8;
-        layer = "overlay";
-        anchor = "top-right";
-        defaultTimeout = 10000;
+        settings = {
+            width = 400;
+            icons = true;
+            actions = true;
+            padding = "15";
+            border-size = 1;
+            max-visible = 3;
+            border-radius = 0;
+            layer = "overlay";
+            anchor = "bottom-right";
+            default-timeout = 4000;
+        };
     };
 }

@@ -1,6 +1,6 @@
 {
     exec-once = [
-        "waybar &"
+        # "waybar &"
         "hyprpaper &"
         "clipse -listen"
         "ayugram-desktop &"

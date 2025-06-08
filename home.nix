@@ -3,20 +3,22 @@
 {
     imports = [ 
         ./modules/xdg
+        ./modules/rofi
         ./modules/yazi
         ./modules/fish
         ./modules/waybar
-        ./modules/hyprland
         ./modules/mako.nix
+        ./modules/hyprland
+        ./modules/fastfetch
         ./modules/ghostty.nix
-        ./modules/fastfetch.nix
-        # inputs.hyprpanel.homeManagerModules.hyprpanel
+        ./modules/hypridle.nix
+        ./modules/hyprlock.nix
     ];
 
     home = {
         username = "jumanji";
-        homeDirectory = "/home/jumanji";
         stateVersion = "24.11";
+        homeDirectory = "/home/jumanji";
         pointerCursor.hyprcursor = {
             enable = true;
             size = 24;
@@ -39,21 +41,24 @@
             nodejs
             gnutar
             clipse
+            nomacs
             swappy
             scrcpy
             lolcat
             figlet
-            vivaldi
+            tabiew
             wttrbar
             ripgrep
             python3
             zathura
             lazygit
+            wlsunset
+            rustdesk
             obsidian
             dnsutils
             cliphist
             cassette
-            hyprpaper
+            lazydocker
             pavucontrol
             libreoffice
             qbittorrent
@@ -64,21 +69,25 @@
             wl-clipboard
             xfce.tumbler
             sublime-merge
-            xfce.ristretto
             hyprpolkitagent
             nodePackages.npm
             mattermost-desktop
             xdg-desktop-portal
             python3Packages.pip
             networkmanagerapplet
+            nvtopPackages.nvidia
             xdg-desktop-portal-gtk
             xdg-desktop-portal-hyprland
+            (pkgs.callPackage ./modules/pkgs/ktalk.nix { })
+            inputs.zen-browser.packages.${pkgs.system}.default
             inputs.ayugram-desktop.packages.${pkgs.system}.ayugram-desktop
         ];
     };
 
     programs = {
         home-manager.enable = true;
+        kitty.enable = true;
+        obs-studio.enable = true;
         git = {
             enable = true;
             userName = "jumanji";
@@ -90,11 +99,6 @@
                 gc = "commit -m";
             };
         };
-        # hyprpanel = {
-        #     enable = true;
-        #     overwrite.enable = true;
-        #     hyprland.enable = true;
-        # };
     };
 
     stylix = {

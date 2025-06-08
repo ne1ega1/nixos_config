@@ -5,7 +5,7 @@
         enable = true;
         polarity = "dark";
         base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
-        image = ./wallpapers/nix-magenta-blue-1920x1080.png;
+        image = ./wallpapers/forrest.png;
 			# let color = "${config.lib.stylix.colors.base00}";
 			# in import ./color.nix { inherit pkgs; col = "#${color}"; w = 1920; h = 1080; };
         fonts = rec {

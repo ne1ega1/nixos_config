@@ -37,9 +37,9 @@
                     "custom/sp2"
                     "cpu"
                     "custom/sp2"
-                    "memory"
-                    "custom/sp2"
                     "temperature"
+                    "custom/sp2"
+                    "battery"
                     "group/rd-soft"
                     "group/lu-dark"
                     "group/group-power"
@@ -346,7 +346,7 @@
                         critical = 15;
                     };
                     format = "{icon} {capacity}%";
-                    format-charging = " {capacity}%";
+                    format-charging = " {capacity}%";
                     format-plugged = " {capacity}%";
                     format-icons = [
                         " "

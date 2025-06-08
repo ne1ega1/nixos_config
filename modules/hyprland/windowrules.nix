@@ -3,18 +3,18 @@ let
     class = win: (mk "class:${win}");
     title = win: (mk "title:${win}");
 
-    term = "ghostty";
+    zen = "zen";
     tg = "com.ayugram";
     clipse = "com.clipse";
     picker = "Выбор файлов";
     yazi = "com.filemanager";
-    vivaldi = "vivaldi-stable";
+    term = "com.mitchellh.ghostty";
     volume = "org.pulseaudio.pavucontrol";
     pip = "^(Picture in picture|Картинка в картинке|Bild-in-Bild)$";
 
     termRules = map (rule: class term rule) [
         "float"
-        "size 950 550" 
+        "size 880 450"
         "opacity 1 1.2"
     ];
 
@@ -39,7 +39,7 @@ let
         "opacity 1 1.2"
     ];
 
-    vivaldiRules = map (rule: class vivaldi rule) [
+    zenRules = map (rule: class zen rule) [
         "workspace 5"
         "opacity 1 1.2"
         "focusonactivate"
@@ -75,7 +75,7 @@ let
     ];
 
     allRules = termRules ++ volumeRules ++ clipseRules ++ tgRules ++ 
-    yaziRules ++ vivaldiRules ++ pickerRules ++ pipRules ++
+    yaziRules ++ zenRules ++ pickerRules ++ pipRules ++
     singleRules;
 in
 {

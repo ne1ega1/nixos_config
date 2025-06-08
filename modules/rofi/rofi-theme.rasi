@@ -1,0 +1,59 @@
+window {
+    height: 600px;
+    width: 600px;
+    border: 3px;
+    border-radius: 10px;
+}
+
+mainbox {
+    spacing: 0;
+    children: [inputbar, message, listview];
+}
+
+inputbar {
+    padding: 14px;
+}
+
+message {
+    padding: 10px;
+}
+
+listview {
+    padding: 8px;
+    border-radius: 0px 0px 10px 10px;
+    border: 2px 2px 2px 2px;
+    dynamic: false;
+}
+
+textbox {
+    background-color: inherit;
+}
+
+error-message {
+    border: 20px 20px 20px 20px;
+}
+
+entry, prompt, case-indicator {
+    text-color: inherit;
+}
+
+prompt {
+    margin: 0px 10px 0px 0px;
+}
+
+element {
+    padding: 5px;
+    vertical-align: 0.5;
+    border-radius: 10px;
+}
+
+element.alternate.normal {
+    background-color: inherit;
+}
+
+element-text, element-icon {
+    size: 40px;
+    margin: 0px 10px 0px 0px;
+    vertical-align: 0.5;
+    background-color: inherit;
+}

@@ -7,20 +7,23 @@
     ];
 
     boot = {
+        initrd.kernelModules = [ "nvidia" "i915" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+        kernelParams = [ "nvidia-drm.fbdev=1" ];
+        plymouth.enable = true;
         loader = {
             systemd-boot.enable = true;
             efi.canTouchEfiVariables = true;
         };
-        initrd.kernelModules = [ "nvidia" "i915" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
-        kernelParams = [ "nvidia-drm.fbdev=1" ];
     };
 
     hardware = {
         graphics.enable = true;
-        nvidia.modesetting.enable = true;
-        nvidia.powerManagement.enable = true;
-        nvidia.open = false;
-        nvidia.nvidiaSettings = true;
+        nvidia = {
+            modesetting.enable = true;
+            powerManagement.enable = true;
+            nvidiaSettings = true;
+            open = false;
+        };
     };
 
     networking = {
@@ -31,13 +34,13 @@
     services = {
         getty.autologinUser = "jumanji";
         xserver.videoDrivers = ["nvidia"];
-        # pulseaudio = {
-        #     enable = true;
-        #     support32Bit = true;
-        # };
-        # pipewire = {
-        #     enable = true;
-        # };
+        udev.packages = with pkgs; [
+            qmk
+            qmk-udev-rules
+            qmk_hid
+            via
+            vial
+        ];
     };
 
     virtualisation.docker = {
@@ -59,7 +62,7 @@
         gc = {
             automatic = true;
             dates = "weekly";
-            options = "--delete-older-than 14d";
+            options = "--delete-older-than 7d";
         };
     };
 
@@ -95,6 +98,7 @@
         gnumake
         neovim
         wget
+        vial
         gcc
     ];
 

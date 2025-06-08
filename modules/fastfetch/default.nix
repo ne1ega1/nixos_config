@@ -5,10 +5,8 @@
         enable = true;
         settings = {
             logo = {
-                color = {
-                    "1" = "cyan";
-                    "2" = "blue";
-                };
+                source = "~/nixos_config/modules/fastfetch/nixos-logo.png";
+                height = 20;
             };
             display = {
                 separator = "  ";
@@ -18,11 +16,9 @@
                 };
                 bar = {
                     width = 10;
-                    charElapsed = "";
+                    # charElapsed = "";
+                    charElapsed = "";
                     charTotal = " ";
-                };
-                percent = {
-                    type = 2;
                 };
             };
             modules = [
@@ -49,8 +45,6 @@
                     key = "├󰑭";
                     percent = {
                         type = 2;
-                        cyan = 50;
-                        yellow = 80;
                     };
                 }
                 {
@@ -58,8 +52,6 @@
                     key = "├";
                     percent = {
                         type = 2;
-                        cyan = 50;
-                        yellow = 80;
                     };
                 }
                 {
@@ -124,8 +116,8 @@
                 }
                 {
                     type = "colors";
-                    paddingLeft = 2;
-                    symbol = "circle";
+                    paddingLeft = 18;
+                    symbol = "square";
                 }
             ];
         };

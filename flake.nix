@@ -3,9 +3,14 @@
 
     inputs = {
         nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+        # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+        # chaotic.url = "https://flakehub.com/f/chaotic-cx/nyx/*.tar.gz";
         impermanence.url = "github:nix-community/impermanence";
         stylix.url = "github:danth/stylix";
-        # hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+        zen-browser = {
+            url = "github:youwen5/zen-browser-flake";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
         home-manager = {
             url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
@@ -18,11 +23,8 @@
     };
 
     outputs = { self, nixpkgs, home-manager, ... }@inputs:
-        let
+    let
         system = "x86_64-linux";
-        # overlays = [
-        #     inputs.hyprpanel.overlay
-        # ];
     in {
         nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
             inherit system;
@@ -31,6 +33,9 @@
             };
             modules = [
                 ./configuration.nix
+                # inputs.chaotic.nixosModules.nyx-cache
+                # inputs.chaotic.nixosModules.nyx-overlay
+                # inputs.chaotic.nixosModules.nyx-registry
                 inputs.stylix.nixosModules.stylix
                 home-manager.nixosModules.home-manager {
                     home-manager.useGlobalPkgs = true;
@@ -39,9 +44,6 @@
                     home-manager.extraSpecialArgs = { inherit inputs system; };
                     home-manager.users.jumanji = import ./home.nix;
                 }
-                # {
-                #     nixpkgs.overlays = overlays;
-                # }
             ];
         };
     };

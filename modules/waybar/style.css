@@ -23,6 +23,7 @@ window#waybar.hidden {
 
 #cpu,
 #memory,
+#battery,
 #language,
 #custom-sp2,
 #pulseaudio,
@@ -111,7 +112,7 @@ tooltip {
     padding: 2px 12px 2px 12px;
 }
 
-#temperature {
+#battery {
     padding: 2px 12px 2px 2px;
 }
 

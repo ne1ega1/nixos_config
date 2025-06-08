@@ -12,7 +12,7 @@ let
     appBinds = [
         (mkBind mainMod enter "exec" "ghostty")
         (mkBind mainMod "V" "exec" "ghostty --class=com.clipse -e \"clipse\"")
-        (mkBind mainMod "B" "exec" "vivaldi --enable-features=UseOzonePlatform --ozone-platform=wayland")
+        (mkBind mainMod "B" "exec" "zen")
         (mkBind mainMod "T" "exec" "ghostty --class=com.filemanager -e yazi")
         (mkBind mainMod "G" "exec" "steam")
         (mkBind mainMod "P" "exec" "betterbird")

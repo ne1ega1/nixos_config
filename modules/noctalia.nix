@@ -165,7 +165,6 @@
             wallpaperChange = "";
           };
           location = {
-            name = "MyCity";
             showWeekNumberInCalendar = false;
             use12hourFormat = false;
             useFahrenheit = false;
@@ -255,6 +254,7 @@
             transitionType = "random";
           };
         }
+        // import ../secrets/location.nix
       else
         {
           appLauncher = {
@@ -422,7 +422,6 @@
             wallpaperChange = "";
           };
           location = {
-            name = "MyCity";
             showWeekNumberInCalendar = false;
             use12hourFormat = false;
             useFahrenheit = false;
@@ -511,6 +510,7 @@
             transitionEdgeSmoothness = 0.05;
             transitionType = "random";
           };
-        };
+        }
+        // import ../secrets/location.nix;
   };
 }

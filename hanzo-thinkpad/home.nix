@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
@@ -47,6 +47,7 @@
       figlet
       tabiew
       rclone
+      openssl
       nuclear
       wttrbar
       ripgrep
@@ -117,7 +118,8 @@
         init.defaultBranch = "main";
         user = {
           name = "hanzo";
-        };
+        }
+        // import ../secrets/git.nix;
         gpg = {
           format = "x509";
         };
@@ -134,11 +136,6 @@
           editor = "vim";
         };
       };
-      includes = [
-        {
-          inherit (config.sops.secrets.git_secrets) path;
-        }
-      ];
     };
   };
 

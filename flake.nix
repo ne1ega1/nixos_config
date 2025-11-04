@@ -1,50 +1,123 @@
 {
-    description = "jumanji flake";
+  description = "hanzo flake";
 
-    inputs = {
-        nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-        # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-        # chaotic.url = "https://flakehub.com/f/chaotic-cx/nyx/*.tar.gz";
-        impermanence.url = "github:nix-community/impermanence";
-        stylix.url = "github:danth/stylix";
-        zen-browser = {
-            url = "github:youwen5/zen-browser-flake";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
-        home-manager = {
-            url = "github:nix-community/home-manager";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
-        ayugram-desktop = {
-            type = "git";
-            submodules = true;
-            url = "https://github.com/ndfined-crp/ayugram-desktop/";
-        };
+  inputs = {
+    nvf.url = "github:notashelf/nvf";
+    stylix.url = "github:danth/stylix";
+    hyprland.url = "github:hyprwm/Hyprland";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    impermanence.url = "github:nix-community/impermanence";
+    yandex-music.url = "github:cucumber-sp/yandex-music-linux";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    quickshell = {
+      url = "github:outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.quickshell.follows = "quickshell";
+    };
+    nixcord = {
+      url = "github:kaylorben/nixcord";
+    };
+    yazi-office = {
+      url = "github:macydnah/office.yazi";
+      flake = false;
+    };
+    yazi-compress = {
+      url = "github:kkv9/compress.yazi";
+      flake = false;
+    };
+    yazi-size = {
+      url = "github:pirafrank/what-size.yazi";
+      flake = false;
+    };
+    yazi-clipboard = {
+      url = "github:grappas/wl-clipboard.yazi";
+      flake = false;
+    };
+  };
 
-    outputs = { self, nixpkgs, home-manager, ... }@inputs:
-    let
-        system = "x86_64-linux";
-    in {
-        nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-            inherit system;
-            specialArgs = {
-                inherit inputs;
-            };
-            modules = [
-                ./configuration.nix
-                # inputs.chaotic.nixosModules.nyx-cache
-                # inputs.chaotic.nixosModules.nyx-overlay
-                # inputs.chaotic.nixosModules.nyx-registry
-                inputs.stylix.nixosModules.stylix
-                home-manager.nixosModules.home-manager {
-                    home-manager.useGlobalPkgs = true;
-                    home-manager.useUserPackages = true;
-                    home-manager.backupFileExtension = "backup";
-                    home-manager.extraSpecialArgs = { inherit inputs system; };
-                    home-manager.users.jumanji = import ./home.nix;
-                }
-            ];
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
+    {
+      nixosConfigurations = {
+        hanzo = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+            overlays = [ ];
+          };
+          modules = [
+            ./hanzo
+            inputs.nvf.nixosModules.default
+            inputs.stylix.nixosModules.stylix
+            inputs.noctalia.nixosModules.default
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                backupFileExtension = "backup";
+                extraSpecialArgs = { inherit inputs; };
+                users.hanzo = import ./hanzo/home.nix;
+                sharedModules = [
+                  inputs.yandex-music.homeManagerModules.default
+                  inputs.sops-nix.homeManagerModules.sops
+                  inputs.noctalia.homeModules.default
+                  inputs.nixcord.homeModules.nixcord
+                ];
+              };
+            }
+          ];
         };
+        hanzo-thinkpad = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+            overlays = [ ];
+          };
+          modules = [
+            ./hanzo-thinkpad
+            inputs.nvf.nixosModules.default
+            inputs.stylix.nixosModules.stylix
+            inputs.noctalia.nixosModules.default
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                backupFileExtension = "backup";
+                extraSpecialArgs = { inherit inputs; };
+                users.hanzo = import ./hanzo-thinkpad/home.nix;
+                sharedModules = [
+                  inputs.yandex-music.homeManagerModules.default
+                  inputs.sops-nix.homeManagerModules.sops
+                  inputs.noctalia.homeModules.default
+                ];
+              };
+            }
+          ];
+        };
+      };
     };
 }

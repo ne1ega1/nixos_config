@@ -1,11 +1,9 @@
-{ lib, config, ... }:
-
 {
     programs.fastfetch = {
         enable = true;
         settings = {
             logo = {
-                source = "~/nixos_config/modules/fastfetch/nixos-logo.png";
+                source = "~/nixos_config/modules/fastfetch/nixos_logo_gruvbox.png";
                 height = 20;
             };
             display = {
@@ -16,9 +14,12 @@
                 };
                 bar = {
                     width = 10;
-                    # charElapsed = "";
-                    charElapsed = "";
-                    charTotal = " ";
+                    char = {
+                      elapsed = "■";
+                      # elapsed = "█";
+                      # elapsed = "";
+                      total = " ";
+                    };
                 };
             };
             modules = [
@@ -28,7 +29,7 @@
                 }
                 {
                     type = "host";
-                    format = "{1}";
+                    format = "{2}";
                     key = "├";
                 }
                 {

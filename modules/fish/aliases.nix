@@ -1,8 +1,10 @@
 {
     programs.fish.shellAliases = {
         nt = "cd ~/nixos_config/ && git add . && sudo nixos-rebuild test --flake ~/nixos_config";
-        ns = "cd ~/nixos_config/ && git add . && sudo nixos-rebuild switch --flake ~/nixos_config";
-        update = "nix flake update --flake ~/nixos_config";
+        ns = "cd ~/nixos_config/ && git add . && sudo nixos-rebuild switch --flake ~/nixos_config#hanzo";
+        nst = "cd ~/nixos_config/ && git add . && sudo nixos-rebuild switch --flake ~/nixos_config#hanzo-thinkpad";
+        update = "sudo nix flake update --flake ~/nixos_config";
+        clean = "sudo nix-collect-garbage -d";
 
         unset = "set --erase";
         grubup = "sudo grub-mkconfig -o /boot/grub/grub.cfg";
@@ -33,6 +35,7 @@
         jctl = "journalctl -p 3 -xb";
 
         lg = "lazygit";
+        ld = "lazydocker";
         gl = "git pull";
         gb = "git checkout";
 
@@ -42,7 +45,9 @@
         b = "cd ~/etlsrc && make build/airflow && make build/crawlers && make build/parsers/base && make build/normalizers/base";
         o = "cd ~/etlsrc && make build/xporters/couchdb && make build/operators";
         r = "cd ~/etlsrc && make down && make clean && make up";
-        f = "b && n && make up";
+        f = "b && o && make up";
+        mu = "make up";
+        md = "make down";
 
         pixel = "scrcpy --render-driver=software --window-height=1240 --window-title=\"Pixel 7\" -e";
     };

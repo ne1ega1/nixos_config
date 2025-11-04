@@ -5,7 +5,7 @@ let
 in
 {
     programs.hyprlock = with config.lib.stylix.colors; lib.mkForce {
-        enable = true;
+        enable = false;
 		settings = {
             background = {
                 monitor = "";

@@ -1,6 +1,9 @@
+{ lib, config, ... }:
+
 {
     programs.ghostty = {
         enable = true;
+        themes.stylix.palette = lib.mkForce [ "8=${config.lib.stylix.colors.base05}" ];
         settings = {
             font-size = 11;
             class = "ghostty";
@@ -15,7 +18,6 @@
             window-padding-balance = true;
             confirm-close-surface = false;
             font-family = "Hack Nerd Font";
-            theme = "catppuccin-macchiato";
             mouse-hide-while-typing = true;
             shell-integration-features = "no-cursor";
         };

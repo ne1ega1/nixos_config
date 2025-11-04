@@ -1,12 +1,13 @@
-local catppuccin_theme = require("yatline-catppuccin"):setup("macchiato")
+local gruvbox_material_theme = require("yatline-gruvbox-material"):setup({ mode = "dark", toughness = "soft" })
 
 require("full-border"):setup()
 
 require("yatline"):setup({
-	theme = catppuccin_theme,
-	section_separator = { open = "", close = "" },
-	part_separator = { open = "", close = "" },
-	inverse_separator = { open = "", close = "" },
+	theme = gruvbox_material_theme,
+	section_separator = { open = "", close = "" },
+	-- section_separator = { open = "", close = "" },
+	-- part_separator = { open = "", close = "" },
+	-- inverse_separator = { open = "", close = "" },
 
 	permissions_t_fg = "green",
 	permissions_r_fg = "yellow",

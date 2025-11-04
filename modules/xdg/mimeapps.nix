@@ -32,7 +32,7 @@ in
             ]
         )
         // (
-           mk "org.xfce.ristretto" [
+           mk "feh" [
                 "image/avif"
                 "image/gif"
                 "image/heif"
@@ -118,7 +118,7 @@ in
             ]
         )
         // (
-            mk "vivaldi-stable" [
+            mk "zen" [
                 "text/html"
                 "application/xhtml+xml"
                 "x-scheme-handler/ftp"

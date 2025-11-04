@@ -57,6 +57,7 @@
       obsidian
       dnsutils
       rclone-ui
+      transcrypt
       lazydocker
       dbeaver-bin
       libreoffice

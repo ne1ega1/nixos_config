@@ -66,6 +66,7 @@
       dnsutils
       cassette
       rclone-ui
+      transcrypt
       traceroute
       mangojuice
       lazydocker

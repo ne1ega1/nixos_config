@@ -1,6 +1,0 @@
-keys:
-  - &hanzo age1pwr7ke923js9q2wapv53dlw9w6r5vu4lrlnt2pg9tpl6ung44cxspfuh8z
-creation_rules:
-  - key_groups:
-    - age:
-      - *hanzo

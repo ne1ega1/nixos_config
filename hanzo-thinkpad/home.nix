@@ -121,7 +121,7 @@
           format = "x509";
         };
         commit = {
-          gpgsign = false;
+          gpgsign = true;
         };
         alias = {
           gl = "pull";

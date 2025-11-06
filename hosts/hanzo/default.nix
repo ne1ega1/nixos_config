@@ -1,20 +1,6 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    ../modules/nvf
-    ../modules/stylix
-    ../settings/nix.nix
-    ../settings/i18n.nix
-    ../settings/base.nix
-    ../settings/users.nix
-    ../settings/firewall.nix
-    ../settings/programs.nix
-    ./hardware-configuration.nix
-    ../settings/virtualisation.nix
-    ../settings/system_packages.nix
-  ];
-
   boot = {
     plymouth.enable = true;
     loader = {

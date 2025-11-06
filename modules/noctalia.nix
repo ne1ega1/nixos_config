@@ -32,6 +32,7 @@
             marginVertical = 0.25;
             density = "comfortable";
             marginHorizontal = 0.25;
+            outerCorners = false;
             widgets = {
               center = [
                 {
@@ -123,27 +124,57 @@
           controlCenter = {
             position = "close_to_bar_button";
             quickSettingsStyle = "compact";
-            widgets = {
-              quickSettings = [
+            cards = [
                 {
-                  id = "WiFi";
+                    enabled = true;
+                    id = "profile-card";
                 }
                 {
-                  id = "Bluetooth";
+                    enabled = true;
+                    id = "shortcuts-card";
                 }
                 {
-                  id = "Notifications";
+                    enabled = true;
+                    id = "audio-card";
                 }
                 {
-                  id = "ScreenRecorder";
+                    enabled = true;
+                    id = "weather-card";
                 }
-              ];
+                {
+                    enabled = true;
+                    id = "media-sysmon-card";
+                }
+            ];
+            shortcuts = {
+                left = [
+                    {
+                        id = "WiFi";
+                    }
+                    {
+                        id = "Bluetooth";
+                    }
+                    {
+                        id = "ScreenRecorder";
+                    }
+                ];
+                right = [
+                    {
+                        id = "Notifications";
+                    }
+                    {
+                        id = "KeepAwake";
+                    }
+                    {
+                        id = "NightLight";
+                    }
+                ];
             };
           };
           dock = {
             enabled = false;
             backgroundOpacity = 1;
-            displayMode = "always_hide";
+            displayMode = "auto_hide";
             floatingRatio = 1;
             monitors = [ ];
             onlySameOutput = true;
@@ -283,6 +314,7 @@
             marginVertical = 0.25;
             density = "default";
             marginHorizontal = 0.25;
+            outerCorners = false;
             widgets = {
               center = [
                 {
@@ -380,21 +412,51 @@
           controlCenter = {
             position = "close_to_bar_button";
             quickSettingsStyle = "compact";
-            widgets = {
-              quickSettings = [
+            cards = [
                 {
-                  id = "WiFi";
+                    enabled = true;
+                    id = "profile-card";
                 }
                 {
-                  id = "Bluetooth";
+                    enabled = true;
+                    id = "shortcuts-card";
                 }
                 {
-                  id = "ScreenRecorder";
+                    enabled = true;
+                    id = "audio-card";
                 }
                 {
-                  id = "PowerProfile";
+                    enabled = true;
+                    id = "weather-card";
                 }
-              ];
+                {
+                    enabled = true;
+                    id = "media-sysmon-card";
+                }
+            ];
+            shortcuts = {
+                left = [
+                    {
+                        id = "WiFi";
+                    }
+                    {
+                        id = "Bluetooth";
+                    }
+                    {
+                        id = "ScreenRecorder";
+                    }
+                ];
+                right = [
+                    {
+                        id = "Notifications";
+                    }
+                    {
+                        id = "KeepAwake";
+                    }
+                    {
+                        id = "NightLight";
+                    }
+                ];
             };
           };
           dock = {

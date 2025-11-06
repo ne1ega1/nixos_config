@@ -1,19 +1,6 @@
 { pkgs, inputs, ... }:
 
 {
-  imports = [
-    ../modules/xdg
-    ../modules/yazi
-    ../modules/fish
-    ../modules/sops.nix
-    ../modules/hyprland
-    ../modules/fastfetch
-    ../modules/ghostty.nix
-    ../modules/nixcord.nix
-    ../modules/noctalia.nix
-    ../modules/hypridle.nix
-  ];
-
   home = {
     username = "hanzo";
     stateVersion = "25.05";
@@ -48,23 +35,17 @@
       tabiew
       rclone
       openssl
-      vivaldi
       nuclear
       wttrbar
       ripgrep
       zathura
       lazygit
-      zmkBATx
       windsurf
-      mangohud
       rustdesk
       obsidian
       dnsutils
-      cassette
       rclone-ui
       transcrypt
-      traceroute
-      mangojuice
       lazydocker
       dbeaver-bin
       libreoffice
@@ -74,17 +55,17 @@
       xfce.tumbler
       appimage-run
       sublime-merge
+      mongodb-compass
       ayugram-desktop
       hyprpolkitagent
       material-symbols
-      nvtopPackages.amd
       mattermost-desktop
       xdg-desktop-portal
       python3Packages.pip
       networkmanagerapplet
       xdg-desktop-portal-gtk
       xdg-desktop-portal-hyprland
-      (pkgs.callPackage ../pkgs/ktalk.nix { })
+      (pkgs.callPackage ../../pkgs/ktalk.nix { })
       inputs.zen-browser.packages.${pkgs.system}.default
     ];
   };
@@ -125,7 +106,7 @@
         user = {
           name = "hanzo";
         }
-        // import ../secrets/git.nix;
+        // import ../../secrets/git.nix;
         gpg = {
           format = "x509";
         };

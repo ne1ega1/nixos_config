@@ -1,20 +1,6 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    ../modules/nvf
-    ../modules/stylix
-    ../settings/nix.nix
-    ../settings/i18n.nix
-    ../settings/base.nix
-    ../settings/users.nix
-    ../settings/firewall.nix
-    ../settings/programs.nix
-    ./hardware-configuration.nix
-    ../settings/virtualisation.nix
-    ../settings/system_packages.nix
-  ];
-
   boot = {
     initrd.kernelModules = [ "nvidia" "i915" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
     kernelParams = [ "nvidia-drm.fbdev=1" ];

@@ -15,11 +15,11 @@
       extraDiagnostics.enable = true;
       format = {
         enable = true;
-        type = "nixfmt";
+        type = [ "nixfmt" ];
       };
       lsp = {
         enable = true;
-        server = "nixd";
+        servers = [ "nixd" ];
       };
     };
     python = {
@@ -29,7 +29,7 @@
       treesitter.enable = true;
       lsp = {
         enable = true;
-        server = "pyright";
+        servers = [ "pyright" ];
       };
     };
     lua = {

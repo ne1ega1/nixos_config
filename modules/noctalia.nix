@@ -36,29 +36,31 @@
             widgets = {
               center = [
                 {
+                  id = "Clock";
                   customFont = "CaskaydiaCove NF";
                   formatHorizontal = "HH:mm ddd; MMM dd";
                   formatVertical = "HH mm - dd ddd";
-                  id = "Clock";
                   useCustomFont = true;
                   usePrimaryColor = true;
                 }
               ];
               left = [
                 {
+                  id = "ControlCenter";
+                  colorizeDistroLogo = true;
                   customIconPath = "";
                   icon = "";
-                  id = "ControlCenter";
                   useDistroLogo = true;
                 }
                 {
-                  hideUnoccupied = false;
                   id = "Workspace";
+                  hideUnoccupied = false;
+                  followFocusedScreen = true;
                   labelMode = "none";
                 }
                 {
-                  autoHide = true;
                   id = "MediaMini";
+                  hideMode = "hidden";
                   scrollingMode = "hover";
                   showAlbumArt = true;
                   showVisualizer = true;
@@ -83,6 +85,7 @@
                   showUnreadBadge = true;
                 }
                 {
+                  drawerEnabled = true;
                   blacklist = [ ];
                   id = "Tray";
                 }
@@ -90,6 +93,8 @@
             };
           };
           brightness = {
+            enableDdcSupport = true;
+            enforceMinimum = true;
             brightnessStep = 5;
           };
           colors = with config.lib.stylix.colors; {
@@ -181,6 +186,8 @@
             pinnedApps = [ ];
           };
           general = {
+            language = "ru";
+            lockOnSuspend = false;
             animationDisabled = false;
             animationSpeed = 1.1;
             avatarImage = "${config.home.homeDirectory}/Pictures/QVlmnnUjLs4.jpg";
@@ -189,6 +196,7 @@
             radiusRatio = 0.6;
             screenRadiusRatio = 1;
             showScreenCorners = false;
+            showHibernateOnLockScreen = false;
           };
           hooks = {
             darkModeChange = "";
@@ -196,7 +204,7 @@
             wallpaperChange = "";
           };
           location = {
-            showWeekNumberInCalendar = false;
+            firstDayOfWeek = 1;
             use12hourFormat = false;
             useFahrenheit = false;
           };
@@ -371,6 +379,7 @@
                   showUnreadBadge = true;
                 }
                 {
+                  drawerEnabled = true;
                   blacklist = [ ];
                   id = "Tray";
                 }

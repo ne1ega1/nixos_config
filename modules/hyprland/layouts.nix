@@ -1,3 +1,5 @@
+{ osConfig, ... }:
+
 {
   device = {
     name = "logitech-usb-receiver-mouse";
@@ -20,8 +22,7 @@
       column_width = 0.5;
       follow_focus = true;
       focus_fit_method = 0;
-      fullscreen_on_one_column = false;
-      explicit_column_widths = "0.333, 0.5, 0.667, 1.0";
+      fullscreen_on_one_column = if (osConfig.networking.hostName == "hanzo") then false else true;
     };
   };
 }

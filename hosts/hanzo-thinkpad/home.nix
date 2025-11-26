@@ -56,7 +56,7 @@
       appimage-run
       sublime-merge
       mongodb-compass
-      ayugram-desktop
+      # ayugram-desktop
       hyprpolkitagent
       material-symbols
       mattermost-desktop
@@ -66,7 +66,8 @@
       xdg-desktop-portal-gtk
       xdg-desktop-portal-hyprland
       (pkgs.callPackage ../../pkgs/ktalk.nix { })
-      inputs.zen-browser.packages.${pkgs.system}.default
+      inputs.zen-browser.packages.${stdenv.hostPlatform.system}.default
+      inputs.ayugram-desktop.packages.${stdenv.hostPlatform.system}.ayugram-desktop
     ];
   };
 
@@ -93,6 +94,7 @@
   };
 
   programs = {
+    noctalia-shell.systemd.enable = true;
     home-manager.enable = true;
     obs-studio.enable = true;
     yandex-music = {

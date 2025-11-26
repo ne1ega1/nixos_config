@@ -2,12 +2,14 @@
   description = "hanzo flake";
 
   inputs = {
-    nvf.url = "github:notashelf/nvf";
+    nvf.url = "github:NotAShelf/nvf/v0.8";
     stylix.url = "github:danth/stylix";
     hyprland.url = "github:hyprwm/Hyprland";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     impermanence.url = "github:nix-community/impermanence";
     yandex-music.url = "github:cucumber-sp/yandex-music-linux";
+    ayugram-desktop.url = "github:ndfined-crp/ayugram-desktop";
+    freesm.url = "github:freesmteam/freesmlauncher";
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,14 +26,9 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    quickshell = {
-      url = "github:outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.quickshell.follows = "quickshell";
     };
     nixcord = {
       url = "github:kaylorben/nixcord";
@@ -73,6 +70,7 @@
             inputs.stylix.nixosModules.stylix
             inputs.noctalia.nixosModules.default
             home-manager.nixosModules.home-manager
+            { nixpkgs.config.allowUnfree = true; }
             {
               home-manager = {
                 useGlobalPkgs = true;
@@ -116,6 +114,7 @@
             inputs.stylix.nixosModules.stylix
             inputs.noctalia.nixosModules.default
             home-manager.nixosModules.home-manager
+            { nixpkgs.config.allowUnfree = true; }
             {
               home-manager = {
                 useGlobalPkgs = true;

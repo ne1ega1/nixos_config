@@ -5,7 +5,6 @@
     enable = true;
     formatOnSave = false;
     trouble.enable = true;
-    lspconfig.enable = true;
     inlayHints.enable = true;
     servers = {
       nixd.enable = true;

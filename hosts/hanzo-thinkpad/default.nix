@@ -36,7 +36,6 @@
     blueman.enable = true;
     udisks2.enable = true;
     resolved.enable = true;
-    noctalia-shell.enable = true;
     getty.autologinUser = "hanzo";
     xserver.videoDrivers = ["nvidia"];
     printing = {

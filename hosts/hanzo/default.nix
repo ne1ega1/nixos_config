@@ -31,7 +31,6 @@
     blueman.enable = true;
     udisks2.enable = true;
     resolved.enable = true;
-    noctalia-shell.enable = true;
     getty.autologinUser = "hanzo";
     printing = {
       enable = true;
@@ -51,5 +50,12 @@
         networkmanager-openvpn
       ];
     };
+  };
+  security.wrappers.dumpcap = {
+    source = "${pkgs.wireshark}/bin/dumpcap";
+    capabilities = "cap_net_raw,cap_net_admin=eip";
+    owner = "root";
+    group = "wireshark";
+    permissions = "u=rwx,g=rx,o=";
   };
 }

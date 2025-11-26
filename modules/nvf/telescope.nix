@@ -47,9 +47,6 @@
           override_file_sorter = true;
           case_mode = "smart_case";
         };
-        zoxide = {
-          prompt_title = "Change directory";
-        };
       };
     };
     mappings = {
@@ -325,25 +322,24 @@
       lua = true;
       desc = "search symbol in buffer";
     }
-    {
-      key = "<leader>z";
-      mode = [ "n" ];
-      action = ":Telescope zoxide list<CR>";
-      silent = true;
-      desc = "change directory using zoxide";
-    }
+    # {
+    #   key = "<leader>z";
+    #   mode = [ "n" ];
+    #   action = ":Telescope zoxide list<CR>";
+    #   silent = true;
+    #   desc = "change directory using zoxide";
+    # }
   ];
   luaConfigRC.telescope = ''
     require('telescope').load_extension('fzf')
-    require('telescope').load_extension('zoxide')
   '';
   extraPlugins = {
     telescope-fzf-nvim = {
       package = pkgs.vimPlugins.telescope-fzf-native-nvim;
     };
-    telescope-zoxide = {
-      package = pkgs.vimPlugins.telescope-zoxide;
-    };
+    # telescope-zoxide = {
+    #   package = pkgs.vimPlugins.telescope-zoxide;
+    # };
     neoclip = {
       package = pkgs.vimPlugins.nvim-neoclip-lua;
     };

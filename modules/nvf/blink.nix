@@ -7,6 +7,7 @@
           "lsp"
           "path"
           "buffer"
+          "copilot"
           "lazydev"
           "snippets"
         ];
@@ -15,11 +16,17 @@
             name = "LazyDev";
             module = "lazydev.integrations.blink";
           };
+          copilot = {
+            name = "copilot";
+            module = "blink-cmp-copilot";
+            score_offset = 100;
+            async = true;
+          };
         };
       };
       keymap = {
         preset = "enter";
-        "<S-Tab>" = [
+        "<c-Tab>" = [
           "select_prev"
           "fallback"
         ];

@@ -89,12 +89,12 @@ let
   ];
 
   scrollingBinds = [
-    (mkBind "${mainMod} ${ctrl}" "H" "layoutmsg" "move -col")
-    (mkBind "${mainMod} ${ctrl}" "L" "layoutmsg" "move +col")
-    (mkBind "${mainMod} ${shift}" "J" "layoutmsg" "movewindowto d")
-    (mkBind "${mainMod} ${shift}" "K" "layoutmsg" "movewindowto u")
-    (mkBind "${mainMod} ${shift}" "H" "layoutmsg" "movewindowto l")
-    (mkBind "${mainMod} ${shift}" "L" "layoutmsg" "movewindowto r")
+    (mkBind "${mainMod} ${ctrl}" "H" "layoutmsg" "movewindowto -col")
+    (mkBind "${mainMod} ${ctrl}" "L" "layoutmsg" "movewindowto +col")
+    # (mkBind "${mainMod} ${shift}" "J" "layoutmsg" "movewindowto d")
+    # (mkBind "${mainMod} ${shift}" "K" "layoutmsg" "movewindowto u")
+    (mkBind "${mainMod} ${shift}" "H" "layoutmsg" "swapcol l")
+    (mkBind "${mainMod} ${shift}" "L" "layoutmsg" "swapcol r")
     (mkBind "${mainMod} ${shift}" "U" "layoutmsg" "colresize -0.1")
     (mkBind "${mainMod} ${shift}" "I" "layoutmsg" "colresize +0.1")
   ];

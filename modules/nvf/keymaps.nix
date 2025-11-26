@@ -230,36 +230,6 @@
       desc = "terminal right window navigation";
     }
 
-    # Codeium
-    {
-      mode = [ "i" ];
-      key = "<C-g>";
-      action = "function() return vim.fn[\"codeium#Accept\"]() end";
-      expr = true;
-      silent = true;
-    }
-    {
-      mode = [ "i" ];
-      key = "<c-;>";
-      action = "function() return vim.fn[\"codeium#CycleCompletions\"](1) end";
-      expr = true;
-      silent = true;
-    }
-    {
-      mode = [ "i" ];
-      key = "<c-,>";
-      action = "function() return vim.fn[\"codeium#CycleCompletions\"](-1) end";
-      expr = true;
-      silent = true;
-    }
-    {
-      mode = [ "i" ];
-      key = "<c-x>";
-      action = "function() return vim.fn[\"codeium#Clear\"]() end";
-      expr = true;
-      silent = true;
-    }
-
     # Other
     {
       mode = [ "n" ];
@@ -272,6 +242,18 @@
       key = "<leader>gg";
       action = ":lua Snacks.lazygit()<CR>";
       desc = "lazygit";
+    }
+    {
+      mode = [ "n" ];
+      key = "<leader>cc";
+      action = ":CopilotChatToggle<CR>";
+      desc = "copilot chat toggle";
+    }
+    {
+      mode = [ "n" ];
+      key = "<leader>cm";
+      action = ":CopilotChatModels<CR>";
+      desc = "copilot chat models";
     }
   ];
 }

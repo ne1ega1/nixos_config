@@ -12,6 +12,7 @@
       "<leader>h" = "gitsigns";
       "<leader>l" = "lsp";
       "<leader>m" = "make";
+      "<leader>r" = "kulala";
       "<leader>s" = "session";
       "<leader>t" = "terminal";
       "<leader>u" = "ui";

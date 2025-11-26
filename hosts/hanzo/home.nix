@@ -42,12 +42,13 @@
       zathura
       lazygit
       zmkBATx
+      proxyman
       windsurf
       mangohud
       rustdesk
       obsidian
       dnsutils
-      cassette
+      evolution
       rclone-ui
       transcrypt
       traceroute
@@ -61,7 +62,7 @@
       xfce.tumbler
       appimage-run
       sublime-merge
-      ayugram-desktop
+      # ayugram-desktop
       hyprpolkitagent
       material-symbols
       nvtopPackages.amd
@@ -72,7 +73,9 @@
       xdg-desktop-portal-gtk
       xdg-desktop-portal-hyprland
       (pkgs.callPackage ../../pkgs/ktalk.nix { })
-      inputs.zen-browser.packages.${pkgs.system}.default
+      inputs.zen-browser.packages.${stdenv.hostPlatform.system}.default
+      inputs.freesm.packages.${stdenv.hostPlatform.system}.freesmlauncher
+      inputs.ayugram-desktop.packages.${stdenv.hostPlatform.system}.ayugram-desktop
     ];
   };
 
@@ -99,6 +102,7 @@
   };
 
   programs = {
+    noctalia-shell.systemd.enable = true;
     home-manager.enable = true;
     obs-studio.enable = true;
     yandex-music = {

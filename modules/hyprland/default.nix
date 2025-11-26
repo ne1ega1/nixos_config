@@ -38,12 +38,12 @@
           ];
     }
     // (import ./keybindings.nix { inherit osConfig; })
+    // (import ./autostart.nix { inherit osConfig; })
+    // (import ./layouts.nix { inherit osConfig; })
     // import ./environment.nix
     // import ./windowrules.nix
     // import ./animations.nix
     // import ./decoration.nix
-    // import ./autostart.nix
-    // import ./layouts.nix
     // import ./general.nix
     // import ./input.nix
     // import ./misc.nix;

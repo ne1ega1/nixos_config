@@ -64,6 +64,7 @@
             ./hosts/hanzo
             ./modules/nvf
             ./modules/stylix
+            ./secrets/certs.nix
             ./secrets/firewall.nix
             ./hosts/hanzo/hardware-configuration.nix
             inputs.nvf.nixosModules.default
@@ -107,6 +108,7 @@
             ./settings
             ./modules/nvf
             ./modules/stylix
+            ./secrets/certs.nix
             ./secrets/firewall.nix
             ./hosts/hanzo-thinkpad
             ./hosts/hanzo-thinkpad/hardware-configuration.nix

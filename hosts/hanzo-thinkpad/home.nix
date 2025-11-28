@@ -56,7 +56,7 @@
       appimage-run
       sublime-merge
       mongodb-compass
-      # ayugram-desktop
+      ayugram-desktop
       hyprpolkitagent
       material-symbols
       mattermost-desktop
@@ -67,7 +67,7 @@
       xdg-desktop-portal-hyprland
       (pkgs.callPackage ../../pkgs/ktalk.nix { })
       inputs.zen-browser.packages.${stdenv.hostPlatform.system}.default
-      inputs.ayugram-desktop.packages.${stdenv.hostPlatform.system}.ayugram-desktop
+      # inputs.ayugram-desktop.packages.${stdenv.hostPlatform.system}.ayugram-desktop
     ];
   };
 

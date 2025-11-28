@@ -51,11 +51,4 @@
       ];
     };
   };
-  security.wrappers.dumpcap = {
-    source = "${pkgs.wireshark}/bin/dumpcap";
-    capabilities = "cap_net_raw,cap_net_admin=eip";
-    owner = "root";
-    group = "wireshark";
-    permissions = "u=rwx,g=rx,o=";
-  };
 }

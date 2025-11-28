@@ -62,7 +62,7 @@
       xfce.tumbler
       appimage-run
       sublime-merge
-      # ayugram-desktop
+      ayugram-desktop
       hyprpolkitagent
       material-symbols
       nvtopPackages.amd
@@ -75,7 +75,7 @@
       (pkgs.callPackage ../../pkgs/ktalk.nix { })
       inputs.zen-browser.packages.${stdenv.hostPlatform.system}.default
       inputs.freesm.packages.${stdenv.hostPlatform.system}.freesmlauncher
-      inputs.ayugram-desktop.packages.${stdenv.hostPlatform.system}.ayugram-desktop
+      # inputs.ayugram-desktop.packages.${stdenv.hostPlatform.system}.ayugram-desktop
     ];
   };
 

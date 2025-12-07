@@ -77,10 +77,10 @@ let
   ];
 
   allRules =
-    termRules
+    yaziRules
+    # ++ termRules
     ++ clipseRules
     ++ tgRules
-    ++ yaziRules
     ++ zenRules
     ++ mpvRules
     ++ pickerRules

@@ -71,7 +71,6 @@
             inputs.stylix.nixosModules.stylix
             inputs.noctalia.nixosModules.default
             home-manager.nixosModules.home-manager
-            { nixpkgs.config.allowUnfree = true; }
             {
               home-manager = {
                 useGlobalPkgs = true;
@@ -90,6 +89,7 @@
                   ./modules/nixcord.nix
                   ./modules/fastfetch
                   ./modules/hyprland
+                  ./modules/tmux.nix
                   ./modules/sops.nix
                   ./modules/yazi
                   ./modules/fish
@@ -116,7 +116,6 @@
             inputs.stylix.nixosModules.stylix
             inputs.noctalia.nixosModules.default
             home-manager.nixosModules.home-manager
-            { nixpkgs.config.allowUnfree = true; }
             {
               home-manager = {
                 useGlobalPkgs = true;
@@ -134,6 +133,7 @@
                   ./modules/ghostty.nix
                   ./modules/fastfetch
                   ./modules/hyprland
+                  ./modules/tmux.nix
                   ./modules/sops.nix
                   ./modules/yazi
                   ./modules/fish

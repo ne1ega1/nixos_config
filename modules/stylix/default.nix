@@ -5,7 +5,7 @@
     enable = true;
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-soft.yaml";
-    image = ./wallpapers/aishot-3433.jpg;
+    image = ./wallpapers/aishot-3453.jpg;
     # let color = "${config.lib.stylix.colors.base00}";
     # in import ./color.nix { inherit pkgs; col = "#${color}"; w = 1920; h = 1080; };
     fonts = rec {

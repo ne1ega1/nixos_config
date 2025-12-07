@@ -40,6 +40,7 @@
       ripgrep
       zathura
       lazygit
+      spotify
       windsurf
       rustdesk
       obsidian

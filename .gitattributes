@@ -1,2 +1,1 @@
 secrets/*.nix filter=crypt diff=crypt merge=crypt
-certs/*.crt filter=crypt diff=crypt merge=crypt

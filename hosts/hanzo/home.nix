@@ -41,6 +41,7 @@
       ripgrep
       zathura
       lazygit
+      spotify
       zmkBATx
       proxyman
       windsurf
@@ -59,6 +60,7 @@
       qbittorrent
       xfce.thunar
       thunderbird
+      btrfs-progs
       xfce.tumbler
       appimage-run
       sublime-merge

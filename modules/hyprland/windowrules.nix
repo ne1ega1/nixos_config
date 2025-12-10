@@ -72,7 +72,7 @@ let
     (class "thunderbird" "workspace 5")
     (class "scrcpy" "workspace 5")
     (class "ktalk" "workspace 5")
-    (class "yaamp" "workspace special")
+    (class "Spotify" "workspace special")
     (class "^(hyprland.share.picker)$" "float")
   ];
 

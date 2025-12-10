@@ -1,0 +1,6 @@
+{
+  network = {
+    wifiEnabled = false;
+  };
+
+}

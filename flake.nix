@@ -83,12 +83,12 @@
                   inputs.sops-nix.homeManagerModules.sops
                   inputs.noctalia.homeModules.default
                   inputs.nixcord.homeModules.nixcord
-                  ./modules/noctalia.nix
                   ./modules/hypridle.nix
                   ./modules/ghostty.nix
                   ./modules/nixcord.nix
                   ./modules/fastfetch
                   ./modules/hyprland
+                  ./modules/noctalia
                   ./modules/tmux.nix
                   ./modules/sops.nix
                   ./modules/yazi
@@ -127,12 +127,12 @@
                   inputs.yandex-music.homeManagerModules.default
                   inputs.sops-nix.homeManagerModules.sops
                   inputs.noctalia.homeModules.default
-                  ./modules/noctalia.nix
                   ./modules/hypridle.nix
                   ./modules/hyprlock.nix
                   ./modules/ghostty.nix
                   ./modules/fastfetch
                   ./modules/hyprland
+                  ./modules/noctalia
                   ./modules/tmux.nix
                   ./modules/sops.nix
                   ./modules/yazi

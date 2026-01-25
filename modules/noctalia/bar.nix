@@ -5,10 +5,8 @@
     monitors = [ ];
     floating = true;
     exclusive = true;
-    capsuleOpacity = 1;
     showCapsule = false;
     outerCorners = false;
-    backgroundOpacity = 1;
     marginVertical = 0.25;
     density = "comfortable";
     marginHorizontal = 0.25;
@@ -85,6 +83,10 @@
           id = "NotificationHistory";
           showUnreadBadge = true;
           hideWhenZero = true;
+        }
+        {
+          id = "VPN";
+          displayMode = "onhover";
         }
         {
           id = "Tray";

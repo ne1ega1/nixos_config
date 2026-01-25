@@ -22,6 +22,7 @@
       grim
       meld
       glow
+      sshfs
       unzip
       slurp
       hexyl
@@ -33,19 +34,23 @@
       lolcat
       figlet
       tabiew
+      thunar
       rclone
       openssl
       vivaldi
+      vesktop
       nuclear
       wttrbar
       ripgrep
       zathura
       lazygit
       spotify
+      tumbler
       zmkBATx
       proxyman
-      windsurf
+      usbutils
       mangohud
+      chromium
       rustdesk
       obsidian
       dnsutils
@@ -58,10 +63,9 @@
       dbeaver-bin
       libreoffice
       qbittorrent
-      xfce.thunar
       thunderbird
       btrfs-progs
-      xfce.tumbler
+      pavucontrol
       appimage-run
       sublime-merge
       ayugram-desktop
@@ -74,7 +78,7 @@
       networkmanagerapplet
       xdg-desktop-portal-gtk
       xdg-desktop-portal-hyprland
-      (pkgs.callPackage ../../pkgs/ktalk.nix { })
+      (pkgs.callPackage ./pkgs/ktalk.nix { })
       inputs.zen-browser.packages.${stdenv.hostPlatform.system}.default
       inputs.freesm.packages.${stdenv.hostPlatform.system}.freesmlauncher
       # inputs.ayugram-desktop.packages.${stdenv.hostPlatform.system}.ayugram-desktop
@@ -82,7 +86,7 @@
   };
 
   stylix = {
-    iconTheme = {
+    icons = {
       enable = true;
       dark = "Reversal";
       light = "Reversal";
@@ -118,7 +122,7 @@
         user = {
           name = "hanzo";
         }
-        // import ../../secrets/git.nix;
+        // import ./secrets/git.nix;
         gpg = {
           format = "x509";
         };

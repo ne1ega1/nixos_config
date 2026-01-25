@@ -1,8 +1,13 @@
-U2FsdGVkX1/OLLFb/NG1lolWhWAzIZ9yRigCCIh9zak+44hVLUivioFtaAzi0/nJ
-c7klZ7kb87uiWtB/mKSA6XDODI+xnA2YJ+CAqywtjYy/H69YsKfdTLrpRBkPoNgH
-xboDCHal/A6gqPvOhUSQgATuiVf2Ba2bLOzS8y1Zf/m90i7SvmZbQBc77IV4Zhkf
-rtH98Zi9jWdmXyEZGeUktEpUCJkdh1CSgToMESFBVifLH/eaH7y1I2jxRdtk3B6d
-PHv2kGO1piYKxLOcMuhRZshHMM+lQ0MJGAX/7KLCvG5sCfvt/McFWqKudFYlpQdS
-29UpVnOypkyxSV5MZSRVZ5EGQAvMeHGhgSjwV/rf+Bmxp9p4xuYbzhncXKZTHb2X
-l3HGzHe+GEb5NFUD/7xNZ57y5QIsgYAJq3Nrm9wFCZ3Pfr0TQQzRnc9E3o/6dsQH
-Mpj30uEhYhMGogugUNn1yeo5njJz8oEqTylHQtylSwI=
+{
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 8200 ];
+    allowedUDPPorts = [ 1900 ];
+    interfaces."docker0".allowedTCPPorts = [ 53 ];
+    interfaces."docker0".allowedUDPPorts = [ 53 ];
+    extraCommands = ''
+      iptables -I nixos-fw 1 -i br+ -p tcp -d 172.17.0.1 --dport 53 -j ACCEPT
+      iptables -I nixos-fw 1 -i br+ -p udp -d 172.17.0.1 --dport 53 -j ACCEPT
+    '';
+  };
+}

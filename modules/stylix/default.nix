@@ -1,13 +1,26 @@
 { pkgs, config, ... }:
 
+let
+  theme = "${pkgs.base16-schemes}/share/themes/onedark.yaml";
+  inputImage = ./wallpapers/aishot-3969.jpg;
+  # tintedWallpaper =
+  #   pkgs.runCommand "tinted-wallpaper.png"
+  #     {
+  #       buildInputs = [ pkgs.imagemagick ];
+  #     }
+  #     ''
+  #       magick ${inputImage} \
+  #       -fill "#${config.lib.stylix.colors.base00}" \
+  #       -colorize 45% \
+  #       $out
+  #     '';
+in
 {
   stylix = {
     enable = true;
     polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-soft.yaml";
-    image = ./wallpapers/aishot-3453.jpg;
-    # let color = "${config.lib.stylix.colors.base00}";
-    # in import ./color.nix { inherit pkgs; col = "#${color}"; w = 1920; h = 1080; };
+    base16Scheme = theme;
+    image = inputImage;
     fonts = rec {
       monospace = sansSerif;
       sizes = {

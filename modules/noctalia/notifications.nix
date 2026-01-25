@@ -3,7 +3,6 @@
     enabled = true;
     monitors = [ ];
     overlayLayer = true;
-    backgroundOpacity = 1;
     location = "top_right";
     lowUrgencyDuration = 3;
     normalUrgencyDuration = 8;

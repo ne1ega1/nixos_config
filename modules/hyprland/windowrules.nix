@@ -1,7 +1,7 @@
 let
   mk = type: rule: "${rule}, ${type}";
-  class = win: (mk "class:${win}");
-  title = win: (mk "title:${win}");
+  class = win: (mk "match:class ${win}");
+  title = win: (mk "match:title ${win}");
 
   zen = "zen";
   mpv = "mpv";
@@ -13,52 +13,52 @@ let
   pip = "^(Picture in picture|Картинка в картинке|Bild-in-Bild)$";
 
   termRules = map (rule: class term rule) [
-    "float"
+    "match:float yes"
     "size 880 440"
     "opacity 1 1.2"
   ];
 
   clipseRules = map (rule: class clipse rule) [
-    "float"
+    "match:float on"
     "size 622 652"
   ];
 
   tgRules = [
     (class tg "workspace 1")
-    (title "^(Просмотр медиа)$" "fullscreen")
+    (title "^(Просмотр медиа)$" "match:fullscreen 1")
   ];
 
   yaziRules = map (rule: class yazi rule) [
     "workspace 2"
-    "focusonactivate"
+    "focus_on_activate on"
     "opacity 1 1.2"
   ];
 
   zenRules = map (rule: class zen rule) [
     "workspace 2"
     "opacity 1 1.2"
-    "focusonactivate"
+    "focus_on_activate on"
   ];
 
   mpvRules = map (rule: class mpv rule) [
     "workspace 3"
     "opacity 1 1.2"
-    "focusonactivate"
+    "focus_on_activate on"
   ];
 
   pickerRules = map (rule: title picker rule) [
     "workspace 2"
     "opacity 1 1.2"
-    "focusonactivate"
+    "focus_on_activate on"
   ];
 
   pipRules = map (rule: title pip rule) [
-    "noinitialfocus"
+    "no_initial_focus on"
     "size 35% 35%"
-    "float"
+    "match:float yes"
     "move 100%-38% 100%-40%"
     "opacity 1 override 1 override 1"
-    "pin"
+    "match:pin yes"
   ];
 
   singleRules = [
@@ -73,7 +73,7 @@ let
     (class "scrcpy" "workspace 5")
     (class "ktalk" "workspace 5")
     (class "Spotify" "workspace special")
-    (class "^(hyprland.share.picker)$" "float")
+    (class "^(hyprland.share.picker)$" "match:float yes")
   ];
 
   allRules =
@@ -88,5 +88,5 @@ let
     ++ singleRules;
 in
 {
-  windowrulev2 = allRules;
+  windowrule = allRules;
 }

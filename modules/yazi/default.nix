@@ -34,8 +34,8 @@
         wrap = "no";
         tab_size = 4;
         image_delay = 30;
-        max_width = 99999;
-        max_height = 99999;
+        max_width = 9999;
+        max_height = 9999;
         image_quality = 70;
         ueberzug_scale = 1;
         sixel_fraction = 15;

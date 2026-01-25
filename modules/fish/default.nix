@@ -1,5 +1,3 @@
-{ pkgs, lib, config, ... }:
-
 {
   imports = [
     ./aliases.nix
@@ -11,9 +9,7 @@
     starship = {
       enable = true;
       enableFishIntegration = true;
-      settings = {
-        # тут можно писать все конфигурации starship.toml в формате Nix
-      };
+      settings = { };
     };
     fish = {
       enable = true;
@@ -57,7 +53,7 @@
             end
         end
 
-        [ "$(tty)" = "/dev/tty1" ] && exec Hyprland
+        [ "$(tty)" = "/dev/tty1" ] && exec start-hyprland
       '';
     };
   };

@@ -7,6 +7,7 @@
     wl-clip-persist
     docker-compose
     brightnessctl
+    android-tools
     inotify-tools
     pinentry-all
     wl-clipboard

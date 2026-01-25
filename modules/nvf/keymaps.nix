@@ -19,7 +19,6 @@
       action = "<Esc>";
       desc = "exit in insert mode";
     }
-
     {
       mode = [
         "n"
@@ -254,6 +253,54 @@
       key = "<leader>cm";
       action = ":CopilotChatModels<CR>";
       desc = "copilot chat models";
+    }
+    {
+      mode = [ "n" ];
+      key = "<leader>rr";
+      action = ":RemoteStart<CR>";
+      desc = "start remote connection";
+    }
+    {
+      mode = [ "n" ];
+      key = "<leader>rs";
+      action = ":RemoteStop<CR>";
+      desc = "stop remote connection";
+    }
+    {
+      mode = [ "n" ];
+      key = "<leader>ri";
+      action = ":RemoteInfo<CR>";
+      desc = "remote connection info";
+    }
+    {
+      mode = [ "n" ];
+      key = "<leader>ru";
+      action = ":RemoteCleanup<CR>";
+      desc = "cleanup remote connection";
+    }
+    {
+      mode = [ "n" ];
+      key = "<leader>rc";
+      action = ":lua require('remote-sshfs.api').connect()<CR>";
+      desc = "sshfs connect";
+    }
+    {
+      mode = [ "n" ];
+      key = "<leader>rd";
+      action = ":lua require('remote-sshfs.api').disconnect()<CR>";
+      desc = "sshfs disconnect";
+    }
+    {
+      mode = [ "n" ];
+      key = "<leader>re";
+      action = ":lua require('remote-sshfs.api').edit()<CR>";
+      desc = "sshfs edit connection";
+    }
+    {
+      mode = [ "n" ];
+      key = "<leader>ct";
+      action = ":CsvViewToggle<CR>";
+      desc = "toggle csv view";
     }
   ];
 }

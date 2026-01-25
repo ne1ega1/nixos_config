@@ -16,6 +16,27 @@ in
 {
   treesitter = {
     enable = true;
-    grammars = pkgs.tree-sitter.allGrammars ++ [ kulala_http ];
+    # grammars = pkgs.tree-sitter.allGrammars ++ [ kulala_http ];
+    grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+      kulala_http
+      dockerfile
+      javascript
+      git_rebase
+      markdown
+      python
+      yaml
+      html
+      toml
+      json
+      bash
+      fish
+      lua
+      nix
+      sql
+      vim
+      css
+      csv
+      tsv
+    ];
   };
 }

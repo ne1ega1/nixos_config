@@ -100,8 +100,8 @@ let
   ];
 
   switchLayoutBinds = [
-    (mkBind "${ctrl} ${shift}" "1" "exec" "hyprctl switchxkblayout velvet_v3_ui-keyboard 0")
-    (mkBind "${ctrl} ${shift}" "2" "exec" "hyprctl switchxkblayout velvet_v3_ui-keyboard 1")
+    (mkBind "${ctrl} ${shift}" "1" "exec" "hyprctl switchxkblayout eh-velvet-v3-ui-keyboard 0")
+    (mkBind "${ctrl} ${shift}" "2" "exec" "hyprctl switchxkblayout eh-velvet-v3-ui-keyboard 1")
   ];
 
   screenshotBinds = [

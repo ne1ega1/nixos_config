@@ -2,8 +2,6 @@
 
 {
   boot = {
-    initrd.kernelModules = [ "nvidia" "i915" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
-    kernelParams = [ "nvidia-drm.fbdev=1" ];
     plymouth.enable = true;
     loader = {
       systemd-boot.enable = true;
@@ -13,12 +11,9 @@
 
   hardware = {
     i2c.enable = true;
-    graphics.enable = true;
-    nvidia = {
-        modesetting.enable = true;
-        powerManagement.enable = true;
-        nvidiaSettings = true;
-        open = false;
+    graphics = {
+      enable = true;
+      enable32Bit = true;
     };
     bluetooth = {
       enable = true;
@@ -37,7 +32,6 @@
     udisks2.enable = true;
     resolved.enable = true;
     getty.autologinUser = "hanzo";
-    xserver.videoDrivers = ["nvidia"];
     printing = {
       enable = true;
       drivers = [
@@ -45,10 +39,28 @@
         pkgs.cups-brother-hll2340dw
       ];
     };
+    udev.extraRules = ''
+      SUBSYSTEM=="hidraw", ATTRS{idVendor}=="36a7", ATTRS{idProduct}=="a882", MODE="0777", GROUP="uucp", TAG+="uaccess"
+      SUBSYSTEM=="hidraw", ATTRS{idVendor}=="0c45", ATTRS{idProduct}=="8044", MODE="0777", GROUP="uucp", TAG+="uaccess"
+    '';
+    minidlna = {
+      enable = true;
+      settings = {
+        network_interface = "enp13s0";
+        friendly_name = "NixOS Media Server";
+        media_dir = [
+          "V,/media/videos"
+          "A,/media/music"
+        ];
+        notify_interval = 60;
+        inotify = "yes";
+      };
+    };
+
   };
 
   networking = {
-    hostName = "hanzo-thinkpad";
+    hostName = "hanzo";
     networkmanager = {
       enable = true;
       dns = "systemd-resolved";

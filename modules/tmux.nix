@@ -4,7 +4,6 @@
   programs.tmux = {
     enable = true;
     plugins = with pkgs; [
-      tmuxPlugins.gruvbox
       tmuxPlugins.resurrect
       tmuxPlugins.continuum
       tmuxPlugins.better-mouse-mode

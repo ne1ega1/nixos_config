@@ -2,7 +2,6 @@
 
 {
   users = {
-    groups.wireshark = { };
     users.hanzo = {
       packages = with pkgs; [ pkgs.gnupg ];
       description = "hanZo";
@@ -10,14 +9,17 @@
       shell = pkgs.fish;
       extraGroups = [
         "networkmanager"
-        "wireshark"
         "adbusers"
         "storage"
         "docker"
         "wheel"
         "audio"
+        "uucp"
         "i2c"
       ];
+    };
+    users.minidlna = {
+      extraGroups = [ "users" ];
     };
   };
 }

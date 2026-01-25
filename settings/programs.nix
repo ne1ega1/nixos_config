@@ -1,6 +1,5 @@
 {
   programs = {
-    adb.enable = true;
     fish.enable = true;
     ssh.startAgent = false;
     hyprland = {

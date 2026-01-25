@@ -2,7 +2,7 @@
   description = "hanzo flake";
 
   inputs = {
-    nvf.url = "github:NotAShelf/nvf/v0.8";
+    nvf.url = "github:NotAShelf/nvf";
     stylix.url = "github:danth/stylix";
     hyprland.url = "github:hyprwm/Hyprland";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -30,9 +30,6 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixcord = {
-      url = "github:kaylorben/nixcord";
-    };
     yazi-office = {
       url = "github:macydnah/office.yazi";
       flake = false;
@@ -52,97 +49,50 @@
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
-    {
-      nixosConfigurations = {
-        hanzo = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-            overlays = [ ];
-          };
-          modules = [
-            ./settings
-            ./hosts/hanzo
-            ./modules/nvf
-            ./modules/stylix
-            ./secrets/certs.nix
-            ./secrets/firewall.nix
-            ./hosts/hanzo/hardware-configuration.nix
-            inputs.nvf.nixosModules.default
-            inputs.stylix.nixosModules.stylix
-            inputs.noctalia.nixosModules.default
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                backupFileExtension = "backup";
-                extraSpecialArgs = { inherit inputs; };
-                users.hanzo = import ./hosts/hanzo/home.nix;
-                sharedModules = [
-                  inputs.yandex-music.homeManagerModules.default
-                  inputs.sops-nix.homeManagerModules.sops
-                  inputs.noctalia.homeModules.default
-                  inputs.nixcord.homeModules.nixcord
-                  ./modules/hypridle.nix
-                  ./modules/ghostty.nix
-                  ./modules/nixcord.nix
-                  ./modules/fastfetch
-                  ./modules/hyprland
-                  ./modules/noctalia
-                  ./modules/tmux.nix
-                  ./modules/sops.nix
-                  ./modules/yazi
-                  ./modules/fish
-                  ./modules/xdg
-                ];
-              };
-            }
-          ];
+  {
+    nixosConfigurations = {
+      hanzo = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+          overlays = [ ];
         };
-        hanzo-thinkpad = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-            overlays = [ ];
-          };
-          modules = [
-            ./settings
-            ./modules/nvf
-            ./modules/stylix
-            ./secrets/certs.nix
-            ./secrets/firewall.nix
-            ./hosts/hanzo-thinkpad
-            ./hosts/hanzo-thinkpad/hardware-configuration.nix
-            inputs.nvf.nixosModules.default
-            inputs.stylix.nixosModules.stylix
-            inputs.noctalia.nixosModules.default
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                backupFileExtension = "backup";
-                extraSpecialArgs = { inherit inputs; };
-                users.hanzo = import ./hosts/hanzo-thinkpad/home.nix;
-                sharedModules = [
-                  inputs.yandex-music.homeManagerModules.default
-                  inputs.sops-nix.homeManagerModules.sops
-                  inputs.noctalia.homeModules.default
-                  ./modules/hypridle.nix
-                  ./modules/hyprlock.nix
-                  ./modules/ghostty.nix
-                  ./modules/fastfetch
-                  ./modules/hyprland
-                  ./modules/noctalia
-                  ./modules/tmux.nix
-                  ./modules/sops.nix
-                  ./modules/yazi
-                  ./modules/fish
-                  ./modules/xdg
-                ];
-              };
-            }
-          ];
-        };
+        modules = [
+          ./settings
+          ./hanzo.nix
+          ./modules/nvf
+          ./modules/stylix
+          ./secrets/certs.nix
+          ./secrets/firewall.nix
+          ./hardware-configuration.nix
+          inputs.nvf.nixosModules.default
+          inputs.stylix.nixosModules.stylix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "backup";
+              extraSpecialArgs = { inherit inputs; };
+              users.hanzo = import ./home.nix;
+              sharedModules = [
+                inputs.yandex-music.homeManagerModules.default
+                inputs.sops-nix.homeManagerModules.sops
+                inputs.noctalia.homeModules.default
+                ./modules/hypridle.nix
+                ./modules/ghostty.nix
+                ./modules/fastfetch
+                ./modules/hyprland
+                ./modules/noctalia
+                ./modules/tmux.nix
+                ./modules/sops.nix
+                ./modules/yazi
+                ./modules/fish
+                ./modules/xdg
+              ];
+            };
+          }
+        ];
       };
     };
+  };
 }

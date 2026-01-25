@@ -10,9 +10,10 @@
       "<leader>f" = "find";
       "<leader>g" = "git";
       "<leader>h" = "gitsigns";
+      "<leader>k" = "kulala";
       "<leader>l" = "lsp";
       "<leader>m" = "make";
-      "<leader>r" = "kulala";
+      "<leader>r" = "remote";
       "<leader>s" = "session";
       "<leader>t" = "terminal";
       "<leader>u" = "ui";
@@ -22,6 +23,14 @@
       preset = "helix";
       icons = {
         rules = [
+          {
+            pattern = "git";
+            color = "red";
+          }
+          {
+            pattern = "gitsigns";
+            color = "red";
+          }
           {
             pattern = "trouble";
             icon = "󱖫";
@@ -38,11 +47,6 @@
             color = "green";
           }
           {
-            pattern = "zoxide";
-            icon = "";
-            color = "orange";
-          }
-          {
             pattern = "lsp";
             icon = "󰿘";
             color = "blue";
@@ -50,7 +54,17 @@
           {
             pattern = "make";
             icon = "󰁨";
-            color = "orange";
+            color = "green";
+          }
+          {
+            pattern = "kulala";
+            icon = "󱜿";
+            color = "blue";
+          }
+          {
+            pattern = "remote";
+            icon = "󰢹";
+            color = "green";
           }
         ];
       };

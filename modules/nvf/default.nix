@@ -23,7 +23,6 @@
       // import ./languages.nix
       // import ./bufferline.nix
       // (import ./lsp.nix { inherit lib; })
-      // (import ./lazy.nix { inherit pkgs; })
       // (import ./which-key.nix { inherit lib; })
       // (import ./formatter.nix { inherit lib; })
       // (import ./packages.nix { inherit pkgs; })

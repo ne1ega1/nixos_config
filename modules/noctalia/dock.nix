@@ -9,7 +9,6 @@
     pinnedStatic = false;
     colorizeIcons = false;
     onlySameOutput = true;
-    backgroundOpacity = 1;
     displayMode = "auto_hide";
     inactiveIndicators = false;
   };

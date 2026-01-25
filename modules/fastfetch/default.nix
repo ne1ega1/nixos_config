@@ -3,7 +3,7 @@
         enable = true;
         settings = {
             logo = {
-                source = "~/nixos_config/modules/fastfetch/nixos_logo_gruvbox.png";
+                source = "~/nixos_config/modules/fastfetch/nixos-logo.png";
                 height = 20;
             };
             display = {

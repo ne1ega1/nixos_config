@@ -3,7 +3,7 @@
 {
   statusline.lualine = {
     enable = true;
-    theme = lib.mkForce "gruvbox-material";
+    theme = lib.mkForce "onedark";
     componentSeparator = {
       left = "";
       right = "";

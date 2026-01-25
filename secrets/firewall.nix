@@ -1,13 +1,9 @@
-{
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [ 8200 ];
-    allowedUDPPorts = [ 1900 ];
-    interfaces."docker0".allowedTCPPorts = [ 53 ];
-    interfaces."docker0".allowedUDPPorts = [ 53 ];
-    extraCommands = ''
-      iptables -I nixos-fw 1 -i br+ -p tcp -d 172.17.0.1 --dport 53 -j ACCEPT
-      iptables -I nixos-fw 1 -i br+ -p udp -d 172.17.0.1 --dport 53 -j ACCEPT
-    '';
-  };
-}
+U2FsdGVkX1/5Tj+ounohivo8723j1PH8rgujxWkro15eDzihlFavQcqdGq7I1DTU
+s/BJpxP8UBq/ZKgyy84AtRUU+EEY/EVb/VfsyEw8BRHpcqy62nA4LMLNnAswu+HB
+lF33zLk8zj1Ea7r8v2bJ6eS2rxi3xLPg4E3+LbuSSbK3H3vVp9t1xHROlrsMeda5
+0HjcsGQucZ27oDR5u0uPPSq5mmlPSeQFOtd+JPRzaDe+fUReH9uqFd5ug+X2I1gx
+Ac1xyK5OoQFHs2KKWj/FcIo7gGQFkOCM4R4fwNg9ENNWU7oXz5ACS83ItChuM+1v
+KIIDDcTGu2TMnNm5r2wQzqS2kPf/ApmTZawKcXK6km5PRCberSY/25gr6/Wfof/k
+cLfyT3sD5Ce8/pCDc/emRotAbp6SWOhz1fh3qnOJd0Z0/dV3PB6VngGfWVgzWWCs
+rdak2a3v4Ja39uKSI2vsEwPpZ1ElotzVj0TnmHiczEWVajT0emW4TLb2WOTwOvRg
+lfXyM98ZBqRiePFjsI/YsGzC6dIBccfdprNmtyIgOSnS5FdnG2WmjZIZuIrfRWHg

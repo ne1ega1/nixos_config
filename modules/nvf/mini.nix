@@ -2,7 +2,19 @@
   mini = {
     ai.enable = true;
     icons.enable = true;
-    pairs.enable = true;
+    pairs = {
+      enable = true;
+      setupOpts = {
+        mappings = {
+          "'" = {
+            action = "closeopen";
+            pair = "''";
+            neigh_pattern = "^[^%a\\\\].";
+            register.cr = false;
+          };
+        };
+      };
+    };
     surround = {
       enable = true;
       setupOpts = {

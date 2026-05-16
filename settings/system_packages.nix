@@ -9,21 +9,24 @@
     brightnessctl
     android-tools
     inotify-tools
+    sqlitebrowser
     pinentry-all
     wl-clipboard
     pkg-config
     lm_sensors
     playerctl
     cliphist
+    hyperhdr
+    firefox
     ddcutil
     ghostty
     gnumake
     python3
-    udisks2
-    udiskie
     clipse
     neovim
     rustup
+    socat
+    unrar
     meson
     ninja
     cmake

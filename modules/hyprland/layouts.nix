@@ -1,9 +1,7 @@
-{ osConfig, ... }:
-
 {
-  device = {
-    name = "logitech-usb-receiver-mouse";
-    sensitivity = 0;
+  scrolling = {
+    focus_fit_method = 0;
+    fullscreen_on_one_column = false;
   };
   # dwindle = {
   #   pseudotile = true;
@@ -17,12 +15,4 @@
   #   use_active_for_splits = true;
   #   default_split_ratio = 1.0;
   # };
-  plugin = {
-    hyprscrolling = {
-      column_width = 0.5;
-      follow_focus = true;
-      focus_fit_method = 0;
-      fullscreen_on_one_column = if (osConfig.networking.hostName == "hanzo") then false else true;
-    };
-  };
 }

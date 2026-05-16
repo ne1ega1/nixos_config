@@ -7,6 +7,7 @@
     bash-language-server
     lua-language-server
     tree-sitter
+    prettierd
     pyright
     ripgrep
     figlet

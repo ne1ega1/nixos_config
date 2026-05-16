@@ -8,7 +8,7 @@
     normalUrgencyDuration = 8;
     criticalUrgencyDuration = 15;
     respectExpireTimeout = false;
-    enableKeyboardLayoutToast = true;
+    enableKeyboardLayoutToast = false;
       sounds = {
       excludedApps = "discord,firefox,chrome,chromium,edge";
       criticalSoundFile = "";

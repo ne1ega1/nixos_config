@@ -5,6 +5,19 @@
     blink-cmp-copilot
   ];
   extraPlugins = with pkgs.vimPlugins; {
+    claudecode = {
+      package = claudecode-nvim;
+      setup = ''
+        require('claudecode').setup(
+          {
+            terminal_cmd = "/etc/profiles/per-user/hanzo/bin/claude",
+          }
+        )
+      '';
+    };
+    nvim-dap-virtual-text = {
+      package = nvim-dap-virtual-text;
+    };
     nui-nvim = {
       package = nui-nvim;
     };
@@ -45,20 +58,6 @@
     };
     telescope-fzf-native-nvim = {
       package = telescope-fzf-native-nvim;
-    };
-    copilot-chat = {
-      package = CopilotChat-nvim;
-      setup = ''
-        require('CopilotChat').setup(
-          {
-            window = {
-              layout = 'vertical',
-              width = 0.4,
-            },
-            auto_insert_mode = false,
-          }
-        )
-      '';
     };
   };
 }

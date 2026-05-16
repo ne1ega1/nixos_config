@@ -1,15 +1,23 @@
 {
   appLauncher = {
-    viewMode = "list";
-    pinnedExecs = [ ];
+    viewMode = "grid";
     position = "center";
     useApp2Unit = false;
     sortByMostUsed = true;
-    showCategories = true;
+    showCategories = false;
     customLaunchPrefix = "";
     enableClipPreview = true;
-    enableClipboardHistory = false;
+    enableClipboardHistory = true;
     terminalCommand = "ghostty -e";
     customLaunchPrefixEnabled = false;
+    pinnedApps = [
+      # "com.ayugram.desktop"
+      # "Mattermost"
+      # "spotify"
+      # "vivaldi-stable"
+      # "chromium-browser"
+      # "vesktop"
+      # "org.qbittorrent.qBittorrent"
+    ];
   };
 }

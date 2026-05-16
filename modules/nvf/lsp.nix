@@ -11,12 +11,25 @@
       qmlls.enable = true;
       jsonls.enable = true;
       pyright.enable = true;
+      ruff = {
+        settings = {
+          format = {
+            trailing-comma = "none";
+            skip-magic-trailing-comma = true;
+          };
+        };
+      };
     };
   };
   diagnostics = {
     enable = true;
     config = {
-      signs.text = [ "󰅚 " "󰀪 " "󰌶 " "󰛩 " ];
+      signs.text = [
+        "󰅚 "
+        "󰀪 "
+        "󰌶 "
+        "󰛩 "
+      ];
       virtual_text = {
         format = lib.generators.mkLuaInline ''
           function(diagnostic)

@@ -1,8 +1,8 @@
 { pkgs, config, ... }:
 
 let
-  theme = "${pkgs.base16-schemes}/share/themes/onedark.yaml";
-  inputImage = ./wallpapers/aishot-3969.jpg;
+  theme = "${pkgs.base16-schemes}/share/themes/ocean.yaml";
+  inputImage = ./wallpapers/aishot-4848.jpg;
   # tintedWallpaper =
   #   pkgs.runCommand "tinted-wallpaper.png"
   #     {

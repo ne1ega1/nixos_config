@@ -302,5 +302,61 @@
       action = ":CsvViewToggle<CR>";
       desc = "toggle csv view";
     }
+
+    # AI / Claude Code
+    {
+      mode = [ "n" ];
+      key = "<leader>ac";
+      action = ":ClaudeCode<CR>";
+      desc = "Toggle Claude";
+    }
+    {
+      mode = [ "n" ];
+      key = "<leader>af";
+      action = ":ClaudeCodeFocus<CR>";
+      desc = "Focus Claude";
+    }
+    {
+      mode = [ "n" ];
+      key = "<leader>ar";
+      action = ":ClaudeCode --resume<CR>";
+      desc = "Resume Claude";
+    }
+    {
+      mode = [ "n" ];
+      key = "<leader>aC";
+      action = ":ClaudeCode --continue<CR>";
+      desc = "Continue Claude";
+    }
+    {
+      mode = [ "n" ];
+      key = "<leader>am";
+      action = ":ClaudeCodeSelectModel<CR>";
+      desc = "Select Claude model";
+    }
+    {
+      mode = [ "n" ];
+      key = "<leader>ab";
+      action = ":ClaudeCodeAdd %<CR>";
+      desc = "Add current buffer";
+    }
+    {
+      mode = [ "v" ];
+      key = "<leader>as";
+      action = ":ClaudeCodeSend<CR>";
+      desc = "Send to Claude";
+    }
+    {
+      mode = [ "n" ];
+      key = "<leader>aa";
+      action = ":ClaudeCodeDiffAccept<CR>";
+      desc = "Accept diff";
+    }
+    {
+      mode = [ "n" ];
+      key = "<leader>ad";
+      action = ":ClaudeCodeDiffDeny<CR>";
+      desc = "Deny diff";
+    }
   ];
 }

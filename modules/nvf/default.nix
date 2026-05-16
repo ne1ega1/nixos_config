@@ -10,13 +10,13 @@
         undoFile.enable = true;
       }
       // import ./ui.nix
+      // import ./dap.nix
       // import ./mini.nix
       // import ./blink.nix
       // import ./snacks.nix
       // import ./session.nix
       // import ./options.nix
       // import ./keymaps.nix
-      // import ./copilot.nix
       // import ./gitsigns.nix
       // import ./neo-tree.nix
       // import ./clipboard.nix

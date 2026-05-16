@@ -8,10 +8,10 @@ with lib;
       enable = true;
       setupOpts = {
         formatters = {
-          prettierd = {
+          ruff_format = {
             prepend_args = [
-              "--single-quote"
-              "--trailing-comma" "none"
+              "--config"
+              "format.skip-magic-trailing-comma=true"
             ];
           };
         };
@@ -38,6 +38,7 @@ with lib;
           ] (n: [ "prettierd" ]))
           // {
             nix = [ "nixfmt" ];
+            python = [ "ruff_format" ];
           };
       };
     };

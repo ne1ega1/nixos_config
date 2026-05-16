@@ -1,5 +1,8 @@
 { pkgs, inputs, ... }:
 
+let
+  workGit = import ./secrets/git_work.nix;
+in
 {
   home = {
     username = "hanzo";
@@ -27,6 +30,7 @@
       slurp
       hexyl
       bluez
+      iperf
       nodejs
       gnutar
       swappy
@@ -46,7 +50,7 @@
       lazygit
       spotify
       tumbler
-      zmkBATx
+      zmkbatx
       proxyman
       usbutils
       mangohud
@@ -54,13 +58,13 @@
       rustdesk
       obsidian
       dnsutils
-      evolution
       rclone-ui
       transcrypt
       traceroute
       mangojuice
       lazydocker
       dbeaver-bin
+      claude-code
       libreoffice
       qbittorrent
       thunderbird
@@ -81,40 +85,34 @@
       (pkgs.callPackage ./pkgs/ktalk.nix { })
       inputs.zen-browser.packages.${stdenv.hostPlatform.system}.default
       inputs.freesm.packages.${stdenv.hostPlatform.system}.freesmlauncher
-      # inputs.ayugram-desktop.packages.${stdenv.hostPlatform.system}.ayugram-desktop
     ];
   };
 
-  stylix = {
+  stylix = with pkgs; {
     icons = {
       enable = true;
       dark = "Reversal";
       light = "Reversal";
-      package = pkgs.reversal-icon-theme;
+      package = reversal-icon-theme;
     };
   };
 
-  services = {
+  services = with pkgs; {
     hyprsunset.enable = true;
-    udiskie = {
-      enable = true;
-      automount = true;
-      settings = {
-        program_options = {
-          file_manager = "${pkgs.ghostty}/bin/ghostty -e ${pkgs.yazi}/bin/yazi";
-        };
-      };
-    };
+    # udiskie = {
+    #   enable = true;
+    #   automount = true;
+    #   settings = {
+    #     program_options = {
+    #       file_manager = "${ghostty}/bin/ghostty -e ${yazi}/bin/yazi";
+    #     };
+    #   };
+    # };
   };
 
   programs = {
-    noctalia-shell.systemd.enable = true;
     home-manager.enable = true;
     obs-studio.enable = true;
-    yandex-music = {
-      enable = true;
-      tray.enable = true;
-    };
     git = {
       enable = true;
       settings = {
@@ -139,12 +137,25 @@
           editor = "vim";
         };
       };
+      includes = [
+        {
+          condition = "gitdir:~/etlsrc/";
+          path = "~/.config/git/work-identity";
+        }
+      ];
     };
   };
 
   systemd.user.services.mbsync.unitConfig.After = [ "sops-nix.service" ];
 
-  home.file = { };
+  home.file = {
+    ".config/git/work-identity".text = ''
+      [user]
+          name = ${workGit.name}
+    '';
+  };
+
+  gtk.gtk4.theme = null;
 
   home.sessionVariables = {
     EDITOR = "nvim";

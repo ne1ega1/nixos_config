@@ -25,11 +25,18 @@
     python = {
       enable = true;
       dap.enable = true;
-      format.enable = true;
+      format = {
+        enable = true;
+        type = [ "ruff" ];
+      };
       treesitter.enable = true;
+      extraDiagnostics.enable = false;
       lsp = {
         enable = true;
-        servers = [ "pyright" ];
+        servers = [
+          "pyright"
+          "ruff"
+        ];
       };
     };
     lua = {

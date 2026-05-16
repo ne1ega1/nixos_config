@@ -69,7 +69,7 @@ let
     (class "Meld" "workspace 3")
     (class "obsidian" "workspace 3")
     (class "sublime_merge" "workspace 4")
-    (class "thunderbird" "workspace 5")
+    (class "org.gnome.Evolution" "workspace 5")
     (class "scrcpy" "workspace 5")
     (class "ktalk" "workspace 5")
     (class "Spotify" "workspace special")

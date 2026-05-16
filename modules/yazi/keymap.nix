@@ -9,6 +9,11 @@
     ];
     mgr.prepend_keymap = [
       {
+        on = "<S-Enter>";
+        run = "open --interactive";
+        desc = "Open with...";
+      }
+      {
         on = "<C-y>";
         run = [ "plugin wl-clipboard" ];
       }

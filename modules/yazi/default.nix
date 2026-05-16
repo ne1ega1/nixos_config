@@ -7,8 +7,25 @@
   programs.yazi = {
     enable = true;
     enableBashIntegration = true;
+    shellWrapperName = "y";
     initLua = ./init.lua;
     settings = {
+      opener = {
+        browser = [
+          {
+            run = "xdg-open %s1";
+            desc = "Browser";
+            orphan = true;
+          }
+        ];
+      };
+      open = {
+        prepend_rules = [
+          { url = "*.html"; use = [ "edit" "browser" ]; }
+          { url = "*.htm";  use = [ "edit" "browser" ]; }
+          { mime = "text/html"; use = [ "edit" "browser" ]; }
+        ];
+      };
       log.enable = true;
       tasks.image_bound = [0 0];
       mgr = {

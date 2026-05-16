@@ -39,7 +39,7 @@
         gl = "git pull";
         gb = "git checkout";
 
-        c = "cd ~/.config";
+        c = "claude";
         d = "cd ~/Downloads";
         n = "cd ~/nixos_config";
         b = "cd ~/etlsrc && make build/airflow && make build/crawlers && make build/parsers/base && make build/normalizers/base";

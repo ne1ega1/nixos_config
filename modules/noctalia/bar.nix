@@ -1,5 +1,3 @@
-{ osConfig, ... }:
-
 {
   bar = {
     monitors = [ ];
@@ -10,31 +8,21 @@
     marginVertical = 0.25;
     density = "comfortable";
     marginHorizontal = 0.25;
-    position = if (osConfig.networking.hostName == "hanzo") then "left" else "top";
+    position = "left";
     widgets = {
-      center =
-        if (osConfig.networking.hostName == "hanzo") then
-          [
-            {
-              id = "Clock";
-              formatHorizontal = "HH:mm ddd; MMM dd";
-              formatVertical = "HH mm - dd ddd";
-              customFont = "CaskaydiaCove NF";
-              usePrimaryColor = true;
-              useCustomFont = true;
-            }
-          ]
-        else
-          [
-            {
-              id = "Clock";
-              formatHorizontal = "HH:mm ddd | dd MMMM";
-              formatVertical = "HH mm - dd ddd";
-              customFont = "CaskaydiaCove NF";
-              usePrimaryColor = true;
-              useCustomFont = true;
-            }
-          ];
+      center = [
+        {
+          id = "Clock";
+          formatHorizontal = "HH:mm ddd; MMM dd";
+          formatVertical = "HH mm - dd ddd";
+          customFont = "CaskaydiaCove NF";
+          usePrimaryColor = true;
+          useCustomFont = true;
+        }
+        {
+            id = "plugin:weather-indicator";
+        }
+      ];
       left = [
         {
           id = "ControlCenter";
@@ -47,10 +35,12 @@
         }
         {
           id = "Workspace";
-          followFocusedScreen = true;
+          followFocusedScreen = false;
+          showApplications = true;
           hideUnoccupied = false;
           labelMode = "none";
           characterCount = 2;
+          iconScale = 0.8;
         }
         {
           id = "MediaMini";
@@ -64,6 +54,9 @@
           hideMode = "hidden";
           showAlbumArt = true;
           maxWidth = 145;
+        }
+        {
+            id = "plugin:workspace-overview";
         }
       ];
       right = [
@@ -80,6 +73,15 @@
           displayMode = "alwaysHide";
         }
         {
+            id = "plugin:kde-connect";
+        }
+        {
+            id = "plugin:usb-drive-manager";
+        }
+        {
+            id = "plugin:clipper";
+        }
+        {
           id = "NotificationHistory";
           showUnreadBadge = true;
           hideWhenZero = true;
@@ -89,23 +91,16 @@
           displayMode = "onhover";
         }
         {
+            id = "plugin:mini-docker";
+        }
+        {
           id = "Tray";
           colorizeIcons = false;
           drawerEnabled = true;
           blacklist = [ ];
           pinned = [ ];
         }
-      ]
-      ++ (
-        if osConfig.networking.hostName != "hanzo" then
-          [
-            {
-              id = "battery";
-            }
-          ]
-        else
-          [ ]
-      );
+      ];
     };
   };
 }

@@ -2,11 +2,11 @@
 
 pkgs.appimageTools.wrapType2 rec {
     pname = "ktalk";
-    version = "3.1.0";
+    version = "3.5.1";
 
     src = builtins.fetchurl {
         url = "https://st.ktalk.host/ktalk-app/linux/${pname}${version}x86_64.AppImage";
-        sha256 = "1d08sgsk0p19l6nlkjjivzq9v92lc6fj787vxvlfkk8ap4jaw1j0";
+        sha256 = "13lmn8g6w2477hnk0sdidqy6fmq8m9ayg7cgq2hg2jdw8jw8k605";
     };
 
     extraInstallCommands = ''

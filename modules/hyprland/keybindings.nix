@@ -1,5 +1,3 @@
-{ osConfig, ... }:
-
 let
   ctrl = "CTRL";
   shift = "SHIFT";
@@ -10,41 +8,23 @@ let
   mkBind = mod: key: action: command: "${mod}, ${key}, ${action}, ${command}";
   mkBindM = mod: key: action: "${mod}, ${key}, ${action}";
 
-  appBinds =
-    if (osConfig.networking.hostName == "hanzo") then
-      [
-        (mkBind "" "XF86Tools" "exec" "ghostty")
-        (mkBind "" "XF86Launch5" "exec" "ghostty --class=com.nvim -e nvim")
-        (mkBind "" "XF86Launch6" "exec" "ghostty --class=com.filemanager -e yazi")
-        (mkBind "" "XF86Launch7" "exec" "ghostty --class=com.etlsrc --working-directory=/home/hanzo/etlsrc -e nvim")
-        (mkBind "" "XF86Launch8" "exec" "thunderbird")
-        (mkBind "" "XF86Launch9" "exec" "ktalk")
-        (mkBind "" "XF86AudioMicMute" "exec" "noctalia-shell ipc call launcher toggle")
-        (mkBind "" "XF86TouchpadToggle" "exec" "zen")
-        (mkBind "" "XF86TouchpadOn" "exec" "steam")
-        (mkBind "" "XF86TouchpadOff" "exec" "obsidian")
-        (mkBind mainMod "H" "exec" "hyprctl switchxkblayout all 0")
-        (mkBind mainMod "N" "exec" "hyprctl switchxkblayout all 1")
-        (mkBind mainMod "P" "exec" "scrcpy --render-driver=software --window-height=1240 --tcpip --window-title=\"Pixel 7\"")
-        (mkBind mainMod "T" "exec" "ghostty --class=com.clipse -e \"clipse\"")
-        (mkBind mainMod enter "exec" "ghostty")
-      ]
-    else
-      [
-        (mkBind mainMod "N" "exec" "ghostty --class=com.nvim -e nvim")
-        (mkBind mainMod "Y" "exec" "ghostty --class=com.filemanager -e yazi")
-        (mkBind mainMod "M" "exec" "ghostty --class=com.etlsrc --working-directory=/home/hanzo/etlsrc -e nvim")
-        (mkBind mainMod "T" "exec" "thunderbird")
-        (mkBind mainMod "R" "exec" "ktalk")
-        (mkBind mainMod "U" "exec" "noctalia-shell ipc call launcher toggle")
-        (mkBind mainMod "I" "exec" "zen")
-        (mkBind mainMod "E" "exec" "steam")
-        (mkBind mainMod "O" "exec" "obsidian")
-        (mkBind mainMod "H" "exec" "hyprctl switchxkblayout all 0")
-        (mkBind mainMod "N" "exec" "hyprctl switchxkblayout all 1")
-        (mkBind mainMod "V" "exec" "ghostty --class=com.clipse -e \"clipse\"")
-        (mkBind mainMod enter "exec" "ghostty")
-      ];
+  appBinds = [
+    (mkBind "" "XF86Tools" "exec" "ghostty")
+    (mkBind "" "XF86Launch5" "exec" "ghostty --class=com.nvim -e nvim")
+    (mkBind "" "XF86Launch6" "exec" "ghostty --class=com.filemanager -e yazi")
+    (mkBind "" "XF86Launch7" "exec" "ghostty --class=com.etlsrc --working-directory=/home/hanzo/etlsrc -e nvim")
+    (mkBind "" "XF86Launch8" "exec" "evolution")
+    (mkBind "" "XF86Launch9" "exec" "ktalk")
+    (mkBind "" "XF86AudioMicMute" "exec" "noctalia-shell ipc call launcher toggle")
+    (mkBind "" "XF86TouchpadToggle" "exec" "zen")
+    (mkBind "" "XF86TouchpadOn" "exec" "steam")
+    (mkBind "" "XF86TouchpadOff" "exec" "obsidian")
+    (mkBind mainMod "H" "exec" "hyprctl switchxkblayout all 0")
+    (mkBind mainMod "N" "exec" "hyprctl switchxkblayout all 1")
+    (mkBind mainMod "P" "exec" "scrcpy --render-driver=software --window-height=1240 --tcpip --window-title=\"Pixel 7\"")
+    (mkBind mainMod "T" "exec" "noctalia-shell ipc call plugin togglePanel clipper")
+    (mkBind mainMod enter "exec" "ghostty")
+  ];
 
   controlBinds = [
     (mkBind mainMod "Q" "killactive" "")
@@ -89,8 +69,8 @@ let
   ];
 
   scrollingBinds = [
-    (mkBind "${mainMod} ${ctrl}" "H" "layoutmsg" "movewindowto -col")
-    (mkBind "${mainMod} ${ctrl}" "L" "layoutmsg" "movewindowto +col")
+    (mkBind "${mainMod} ${ctrl}" "H" "layoutmsg" "move -col")
+    (mkBind "${mainMod} ${ctrl}" "L" "layoutmsg" "move +col")
     # (mkBind "${mainMod} ${shift}" "J" "layoutmsg" "movewindowto d")
     # (mkBind "${mainMod} ${shift}" "K" "layoutmsg" "movewindowto u")
     (mkBind "${mainMod} ${shift}" "H" "layoutmsg" "swapcol l")
@@ -124,41 +104,27 @@ let
   ];
 
   workspaceBinds = [
-    (mkBind mainMod "1" "workspace" "1")
-    (mkBind mainMod "2" "workspace" "2")
-    (mkBind mainMod "3" "workspace" "3")
-    (mkBind mainMod "4" "workspace" "4")
-    (mkBind mainMod "5" "workspace" "5")
-    (mkBind mainMod "6" "workspace" "5")
-    (mkBind mainMod "7" "workspace" "5")
-    (mkBind mainMod "8" "workspace" "5")
-    (mkBind mainMod "9" "workspace" "5")
-    (mkBind mainMod "0" "workspace" "10")
     (mkBind mainMod "A" "workspace" "1")
     (mkBind mainMod "S" "workspace" "2")
     (mkBind mainMod "D" "workspace" "3")
     (mkBind mainMod "F" "workspace" "4")
     (mkBind mainMod "G" "workspace" "5")
+    (mkBind mainMod "C" "workspace" "6")
+    (mkBind mainMod "V" "workspace" "7")
+    (mkBind mainMod "B" "workspace" "8")
     (mkBind mainMod "Z" "togglespecialworkspace" "special")
     (mkBind mainMod "Y" "togglespecialworkspace" "special")
   ];
 
   moveWorkspaceBinds = [
-    (mkBind "${mainMod} ${shift}" "1" "movetoworkspace" "1")
-    (mkBind "${mainMod} ${shift}" "2" "movetoworkspace" "2")
-    (mkBind "${mainMod} ${shift}" "3" "movetoworkspace" "3")
-    (mkBind "${mainMod} ${shift}" "4" "movetoworkspace" "4")
-    (mkBind "${mainMod} ${shift}" "5" "movetoworkspace" "5")
-    (mkBind "${mainMod} ${shift}" "6" "movetoworkspace" "6")
-    (mkBind "${mainMod} ${shift}" "7" "movetoworkspace" "7")
-    (mkBind "${mainMod} ${shift}" "8" "movetoworkspace" "8")
-    (mkBind "${mainMod} ${shift}" "9" "movetoworkspace" "9")
-    (mkBind "${mainMod} ${shift}" "0" "movetoworkspace" "10")
     (mkBind "${mainMod} ${shift}" "A" "movetoworkspace" "1")
     (mkBind "${mainMod} ${shift}" "S" "movetoworkspace" "2")
     (mkBind "${mainMod} ${shift}" "D" "movetoworkspace" "3")
     (mkBind "${mainMod} ${shift}" "F" "movetoworkspace" "4")
     (mkBind "${mainMod} ${shift}" "G" "movetoworkspace" "5")
+    (mkBind "${mainMod} ${shift}" "C" "movetoworkspace" "6")
+    (mkBind "${mainMod} ${shift}" "V" "movetoworkspace" "7")
+    (mkBind "${mainMod} ${shift}" "B" "movetoworkspace" "8")
     (mkBind "${mainMod} ${shift}" "Z" "movetoworkspace" "special")
     (mkBind "${mainMod} ${shift}" "Y" "movetoworkspace" "special")
   ];
@@ -175,10 +141,7 @@ in
     ++ resizeBinds
     ++ scrollingBinds
     ++ switchLayoutBinds;
-  binde =
-    mediaBinds
-    ++ moveSwapBindsDwindle
-    ++ moveSwapBindsMaster;
+  binde = mediaBinds ++ moveSwapBindsDwindle ++ moveSwapBindsMaster;
   bindl = screenshotBinds;
   bindm = mouseBinds;
 }

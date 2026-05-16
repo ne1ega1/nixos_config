@@ -31,7 +31,34 @@
     blueman.enable = true;
     udisks2.enable = true;
     resolved.enable = true;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      wireplumber = {
+        enable = true;
+        extraConfig."51-yandex-station" = {
+          "wireplumber.settings" = {
+            "bluetooth.autoswitch-to-headset-profile" = false;
+          };
+          "monitor.bluez.rules" = [
+            {
+              matches = [{ "device.name" = "bluez_card.3C_0B_4F_3F_EE_B9"; }];
+              actions = {
+                "update-props" = {
+                  "bluez5.auto-connect" = [ "a2dp_sink" ];
+                  "bluez5.profile" = "a2dp-sink";
+                  "device.profile" = "a2dp-sink";
+                };
+              };
+            }
+          ];
+        };
+      };
+    };
     getty.autologinUser = "hanzo";
+    gnome.evolution-data-server.enable = true;
     printing = {
       enable = true;
       drivers = [
@@ -56,8 +83,9 @@
         inotify = "yes";
       };
     };
-
   };
+
+  security.rtkit.enable = true;
 
   networking = {
     hostName = "hanzo";
